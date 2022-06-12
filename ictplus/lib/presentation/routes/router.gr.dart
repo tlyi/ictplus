@@ -6,8 +6,8 @@
 
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i2;
-import 'package:ictplus/domain/data/forum/forum_post/forum_post.dart' as _i28;
-import 'package:ictplus/domain/data/profile/profile.dart' as _i27;
+import 'package:ictplus/domain/data/forum/forum_post/forum_post.dart' as _i29;
+import 'package:ictplus/domain/data/profile/profile.dart' as _i28;
 import 'package:ictplus/presentation/chats/chat_list/chat_list_page.dart'
     as _i15;
 import 'package:ictplus/presentation/chats/convos/convo_page.dart' as _i16;
@@ -38,6 +38,7 @@ import 'package:ictplus/presentation/profile/update_profile_page.dart' as _i12;
 import 'package:ictplus/presentation/register/register_page.dart' as _i6;
 import 'package:ictplus/presentation/register/register_profile_page.dart'
     as _i8;
+import 'package:ictplus/presentation/register/singpass_page.dart' as _i27;
 import 'package:ictplus/presentation/register/verify_email_page.dart' as _i7;
 import 'package:ictplus/presentation/search/search_users_page.dart' as _i11;
 import 'package:ictplus/presentation/sign_in/reset_password_page.dart' as _i9;
@@ -188,12 +189,17 @@ class AppRouter extends _i1.RootStackRouter {
               userProfile: args.userProfile,
               isOwnProfile: args.isOwnProfile,
               isFollowers: args.isFollowers);
+        }),
+    SingPassRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i27.SingPassPage();
         })
   };
 
   @override
   List<_i1.RouteConfig> get routes => [
-        _i1.RouteConfig(SplashRoute.name, path: '/'),
+        _i1.RouteConfig(SplashRoute.name, path: '/splash-page'),
         _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
         _i1.RouteConfig(HomeRoute.name, path: '/home-page'),
         _i1.RouteConfig(RegisterRoute.name, path: '/register-page'),
@@ -205,7 +211,7 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(SearchUsersRoute.name, path: '/search-users-page'),
         _i1.RouteConfig(UpdateProfileRoute.name, path: '/update-profile-page'),
         _i1.RouteConfig(OtherProfileRoute.name, path: '/other-profile-page'),
-        _i1.RouteConfig(ForumFormRoute.name, path: '/forum-form-page'),
+        _i1.RouteConfig(ForumFormRoute.name, path: '/'),
         _i1.RouteConfig(ChatListRoute.name, path: '/chat-list-page'),
         _i1.RouteConfig(ConvoRoute.name, path: '/convo-page'),
         _i1.RouteConfig(ForumRoute.name, path: '/forum-page'),
@@ -220,12 +226,13 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(FullScreenPhotoRoute.name,
             path: '/full-screen-photo-page'),
         _i1.RouteConfig(FollowersandFollowingRoute.name,
-            path: '/followersand-following-page')
+            path: '/followersand-following-page'),
+        _i1.RouteConfig(SingPassRoute.name, path: '/sing-pass-page')
       ];
 }
 
 class SplashRoute extends _i1.PageRouteInfo {
-  const SplashRoute() : super(name, path: '/');
+  const SplashRoute() : super(name, path: '/splash-page');
 
   static const String name = 'SplashRoute';
 }
@@ -307,7 +314,7 @@ class UpdateProfileRoute extends _i1.PageRouteInfo {
 }
 
 class OtherProfileRoute extends _i1.PageRouteInfo<OtherProfileRouteArgs> {
-  OtherProfileRoute({_i2.Key? key, required _i27.Profile userProfile})
+  OtherProfileRoute({_i2.Key? key, required _i28.Profile userProfile})
       : super(name,
             path: '/other-profile-page',
             args: OtherProfileRouteArgs(key: key, userProfile: userProfile));
@@ -320,11 +327,11 @@ class OtherProfileRouteArgs {
 
   final _i2.Key? key;
 
-  final _i27.Profile userProfile;
+  final _i28.Profile userProfile;
 }
 
 class ForumFormRoute extends _i1.PageRouteInfo {
-  const ForumFormRoute() : super(name, path: '/forum-form-page');
+  const ForumFormRoute() : super(name, path: '/');
 
   static const String name = 'ForumFormRoute';
 }
@@ -336,7 +343,7 @@ class ChatListRoute extends _i1.PageRouteInfo {
 }
 
 class ConvoRoute extends _i1.PageRouteInfo<ConvoRouteArgs> {
-  ConvoRoute({_i2.Key? key, required _i27.Profile otherProfile})
+  ConvoRoute({_i2.Key? key, required _i28.Profile otherProfile})
       : super(name,
             path: '/convo-page',
             args: ConvoRouteArgs(key: key, otherProfile: otherProfile));
@@ -349,7 +356,7 @@ class ConvoRouteArgs {
 
   final _i2.Key? key;
 
-  final _i27.Profile otherProfile;
+  final _i28.Profile otherProfile;
 }
 
 class ForumRoute extends _i1.PageRouteInfo<ForumRouteArgs> {
@@ -374,7 +381,7 @@ class ForumRouteArgs {
 }
 
 class CommentRoute extends _i1.PageRouteInfo<CommentRouteArgs> {
-  CommentRoute({_i2.Key? key, required _i28.ForumPost forum})
+  CommentRoute({_i2.Key? key, required _i29.ForumPost forum})
       : super(name,
             path: '/comment-page',
             args: CommentRouteArgs(key: key, forum: forum));
@@ -387,7 +394,7 @@ class CommentRouteArgs {
 
   final _i2.Key? key;
 
-  final _i28.ForumPost forum;
+  final _i29.ForumPost forum;
 }
 
 class NotificationRoute extends _i1.PageRouteInfo {
@@ -479,7 +486,7 @@ class FollowersandFollowingRoute
     extends _i1.PageRouteInfo<FollowersandFollowingRouteArgs> {
   FollowersandFollowingRoute(
       {_i2.Key? key,
-      required _i27.Profile userProfile,
+      required _i28.Profile userProfile,
       required bool isOwnProfile,
       required bool isFollowers})
       : super(name,
@@ -502,9 +509,15 @@ class FollowersandFollowingRouteArgs {
 
   final _i2.Key? key;
 
-  final _i27.Profile userProfile;
+  final _i28.Profile userProfile;
 
   final bool isOwnProfile;
 
   final bool isFollowers;
+}
+
+class SingPassRoute extends _i1.PageRouteInfo {
+  const SingPassRoute() : super(name, path: '/sing-pass-page');
+
+  static const String name = 'SingPassRoute';
 }

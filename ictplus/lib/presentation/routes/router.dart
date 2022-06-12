@@ -29,7 +29,7 @@ import 'package:ictplus/presentation/splash/splash_page.dart';
 @AdaptiveAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: SplashPage, initial: true),
+    AutoRoute(page: SplashPage), //, initial: true),
     AutoRoute(page: SignInPage),
     AutoRoute(page: HomePage),
     AutoRoute(page: RegisterPage),
@@ -40,7 +40,7 @@ import 'package:ictplus/presentation/splash/splash_page.dart';
     AutoRoute(page: SearchUsersPage),
     AutoRoute(page: UpdateProfilePage),
     AutoRoute(page: OtherProfilePage),
-    AutoRoute(page: ForumFormPage),
+    AutoRoute(page: ForumFormPage, initial: true), //, fullscreenDialog: true), --> for commanders?
     AutoRoute(page: ChatListPage),
     AutoRoute(page: ConvoPage),
     AutoRoute(page: ForumPage),
