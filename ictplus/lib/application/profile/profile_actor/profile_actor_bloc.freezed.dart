@@ -25,22 +25,6 @@ class _$ProfileActorEventTearOff {
   _LoadingOwnProfile loadingOwnProfile() {
     return const _LoadingOwnProfile();
   }
-
-  _AddedFollower addedFollower() {
-    return const _AddedFollower();
-  }
-
-  _RemovedFollower removedFollower() {
-    return const _RemovedFollower();
-  }
-
-  _OpenStats openStats() {
-    return const _OpenStats();
-  }
-
-  _MoreStats moreStats() {
-    return const _MoreStats();
-  }
 }
 
 /// @nodoc
@@ -52,20 +36,12 @@ mixin _$ProfileActorEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadingOtherProfile,
     required TResult Function() loadingOwnProfile,
-    required TResult Function() addedFollower,
-    required TResult Function() removedFollower,
-    required TResult Function() openStats,
-    required TResult Function() moreStats,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadingOtherProfile,
     TResult Function()? loadingOwnProfile,
-    TResult Function()? addedFollower,
-    TResult Function()? removedFollower,
-    TResult Function()? openStats,
-    TResult Function()? moreStats,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -73,20 +49,12 @@ mixin _$ProfileActorEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadingOtherProfile value) loadingOtherProfile,
     required TResult Function(_LoadingOwnProfile value) loadingOwnProfile,
-    required TResult Function(_AddedFollower value) addedFollower,
-    required TResult Function(_RemovedFollower value) removedFollower,
-    required TResult Function(_OpenStats value) openStats,
-    required TResult Function(_MoreStats value) moreStats,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadingOtherProfile value)? loadingOtherProfile,
     TResult Function(_LoadingOwnProfile value)? loadingOwnProfile,
-    TResult Function(_AddedFollower value)? addedFollower,
-    TResult Function(_RemovedFollower value)? removedFollower,
-    TResult Function(_OpenStats value)? openStats,
-    TResult Function(_MoreStats value)? moreStats,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -177,10 +145,6 @@ class _$_LoadingOtherProfile implements _LoadingOtherProfile {
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadingOtherProfile,
     required TResult Function() loadingOwnProfile,
-    required TResult Function() addedFollower,
-    required TResult Function() removedFollower,
-    required TResult Function() openStats,
-    required TResult Function() moreStats,
   }) {
     return loadingOtherProfile(userId);
   }
@@ -190,10 +154,6 @@ class _$_LoadingOtherProfile implements _LoadingOtherProfile {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadingOtherProfile,
     TResult Function()? loadingOwnProfile,
-    TResult Function()? addedFollower,
-    TResult Function()? removedFollower,
-    TResult Function()? openStats,
-    TResult Function()? moreStats,
     required TResult orElse(),
   }) {
     if (loadingOtherProfile != null) {
@@ -207,10 +167,6 @@ class _$_LoadingOtherProfile implements _LoadingOtherProfile {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadingOtherProfile value) loadingOtherProfile,
     required TResult Function(_LoadingOwnProfile value) loadingOwnProfile,
-    required TResult Function(_AddedFollower value) addedFollower,
-    required TResult Function(_RemovedFollower value) removedFollower,
-    required TResult Function(_OpenStats value) openStats,
-    required TResult Function(_MoreStats value) moreStats,
   }) {
     return loadingOtherProfile(this);
   }
@@ -220,10 +176,6 @@ class _$_LoadingOtherProfile implements _LoadingOtherProfile {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadingOtherProfile value)? loadingOtherProfile,
     TResult Function(_LoadingOwnProfile value)? loadingOwnProfile,
-    TResult Function(_AddedFollower value)? addedFollower,
-    TResult Function(_RemovedFollower value)? removedFollower,
-    TResult Function(_OpenStats value)? openStats,
-    TResult Function(_MoreStats value)? moreStats,
     required TResult orElse(),
   }) {
     if (loadingOtherProfile != null) {
@@ -284,10 +236,6 @@ class _$_LoadingOwnProfile implements _LoadingOwnProfile {
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadingOtherProfile,
     required TResult Function() loadingOwnProfile,
-    required TResult Function() addedFollower,
-    required TResult Function() removedFollower,
-    required TResult Function() openStats,
-    required TResult Function() moreStats,
   }) {
     return loadingOwnProfile();
   }
@@ -297,10 +245,6 @@ class _$_LoadingOwnProfile implements _LoadingOwnProfile {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadingOtherProfile,
     TResult Function()? loadingOwnProfile,
-    TResult Function()? addedFollower,
-    TResult Function()? removedFollower,
-    TResult Function()? openStats,
-    TResult Function()? moreStats,
     required TResult orElse(),
   }) {
     if (loadingOwnProfile != null) {
@@ -314,10 +258,6 @@ class _$_LoadingOwnProfile implements _LoadingOwnProfile {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadingOtherProfile value) loadingOtherProfile,
     required TResult Function(_LoadingOwnProfile value) loadingOwnProfile,
-    required TResult Function(_AddedFollower value) addedFollower,
-    required TResult Function(_RemovedFollower value) removedFollower,
-    required TResult Function(_OpenStats value) openStats,
-    required TResult Function(_MoreStats value) moreStats,
   }) {
     return loadingOwnProfile(this);
   }
@@ -327,10 +267,6 @@ class _$_LoadingOwnProfile implements _LoadingOwnProfile {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadingOtherProfile value)? loadingOtherProfile,
     TResult Function(_LoadingOwnProfile value)? loadingOwnProfile,
-    TResult Function(_AddedFollower value)? addedFollower,
-    TResult Function(_RemovedFollower value)? removedFollower,
-    TResult Function(_OpenStats value)? openStats,
-    TResult Function(_MoreStats value)? moreStats,
     required TResult orElse(),
   }) {
     if (loadingOwnProfile != null) {
@@ -345,412 +281,6 @@ abstract class _LoadingOwnProfile implements ProfileActorEvent {
 }
 
 /// @nodoc
-abstract class _$AddedFollowerCopyWith<$Res> {
-  factory _$AddedFollowerCopyWith(
-          _AddedFollower value, $Res Function(_AddedFollower) then) =
-      __$AddedFollowerCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$AddedFollowerCopyWithImpl<$Res>
-    extends _$ProfileActorEventCopyWithImpl<$Res>
-    implements _$AddedFollowerCopyWith<$Res> {
-  __$AddedFollowerCopyWithImpl(
-      _AddedFollower _value, $Res Function(_AddedFollower) _then)
-      : super(_value, (v) => _then(v as _AddedFollower));
-
-  @override
-  _AddedFollower get _value => super._value as _AddedFollower;
-}
-
-/// @nodoc
-
-class _$_AddedFollower implements _AddedFollower {
-  const _$_AddedFollower();
-
-  @override
-  String toString() {
-    return 'ProfileActorEvent.addedFollower()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _AddedFollower);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String userId) loadingOtherProfile,
-    required TResult Function() loadingOwnProfile,
-    required TResult Function() addedFollower,
-    required TResult Function() removedFollower,
-    required TResult Function() openStats,
-    required TResult Function() moreStats,
-  }) {
-    return addedFollower();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String userId)? loadingOtherProfile,
-    TResult Function()? loadingOwnProfile,
-    TResult Function()? addedFollower,
-    TResult Function()? removedFollower,
-    TResult Function()? openStats,
-    TResult Function()? moreStats,
-    required TResult orElse(),
-  }) {
-    if (addedFollower != null) {
-      return addedFollower();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_LoadingOtherProfile value) loadingOtherProfile,
-    required TResult Function(_LoadingOwnProfile value) loadingOwnProfile,
-    required TResult Function(_AddedFollower value) addedFollower,
-    required TResult Function(_RemovedFollower value) removedFollower,
-    required TResult Function(_OpenStats value) openStats,
-    required TResult Function(_MoreStats value) moreStats,
-  }) {
-    return addedFollower(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadingOtherProfile value)? loadingOtherProfile,
-    TResult Function(_LoadingOwnProfile value)? loadingOwnProfile,
-    TResult Function(_AddedFollower value)? addedFollower,
-    TResult Function(_RemovedFollower value)? removedFollower,
-    TResult Function(_OpenStats value)? openStats,
-    TResult Function(_MoreStats value)? moreStats,
-    required TResult orElse(),
-  }) {
-    if (addedFollower != null) {
-      return addedFollower(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _AddedFollower implements ProfileActorEvent {
-  const factory _AddedFollower() = _$_AddedFollower;
-}
-
-/// @nodoc
-abstract class _$RemovedFollowerCopyWith<$Res> {
-  factory _$RemovedFollowerCopyWith(
-          _RemovedFollower value, $Res Function(_RemovedFollower) then) =
-      __$RemovedFollowerCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$RemovedFollowerCopyWithImpl<$Res>
-    extends _$ProfileActorEventCopyWithImpl<$Res>
-    implements _$RemovedFollowerCopyWith<$Res> {
-  __$RemovedFollowerCopyWithImpl(
-      _RemovedFollower _value, $Res Function(_RemovedFollower) _then)
-      : super(_value, (v) => _then(v as _RemovedFollower));
-
-  @override
-  _RemovedFollower get _value => super._value as _RemovedFollower;
-}
-
-/// @nodoc
-
-class _$_RemovedFollower implements _RemovedFollower {
-  const _$_RemovedFollower();
-
-  @override
-  String toString() {
-    return 'ProfileActorEvent.removedFollower()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _RemovedFollower);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String userId) loadingOtherProfile,
-    required TResult Function() loadingOwnProfile,
-    required TResult Function() addedFollower,
-    required TResult Function() removedFollower,
-    required TResult Function() openStats,
-    required TResult Function() moreStats,
-  }) {
-    return removedFollower();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String userId)? loadingOtherProfile,
-    TResult Function()? loadingOwnProfile,
-    TResult Function()? addedFollower,
-    TResult Function()? removedFollower,
-    TResult Function()? openStats,
-    TResult Function()? moreStats,
-    required TResult orElse(),
-  }) {
-    if (removedFollower != null) {
-      return removedFollower();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_LoadingOtherProfile value) loadingOtherProfile,
-    required TResult Function(_LoadingOwnProfile value) loadingOwnProfile,
-    required TResult Function(_AddedFollower value) addedFollower,
-    required TResult Function(_RemovedFollower value) removedFollower,
-    required TResult Function(_OpenStats value) openStats,
-    required TResult Function(_MoreStats value) moreStats,
-  }) {
-    return removedFollower(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadingOtherProfile value)? loadingOtherProfile,
-    TResult Function(_LoadingOwnProfile value)? loadingOwnProfile,
-    TResult Function(_AddedFollower value)? addedFollower,
-    TResult Function(_RemovedFollower value)? removedFollower,
-    TResult Function(_OpenStats value)? openStats,
-    TResult Function(_MoreStats value)? moreStats,
-    required TResult orElse(),
-  }) {
-    if (removedFollower != null) {
-      return removedFollower(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RemovedFollower implements ProfileActorEvent {
-  const factory _RemovedFollower() = _$_RemovedFollower;
-}
-
-/// @nodoc
-abstract class _$OpenStatsCopyWith<$Res> {
-  factory _$OpenStatsCopyWith(
-          _OpenStats value, $Res Function(_OpenStats) then) =
-      __$OpenStatsCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$OpenStatsCopyWithImpl<$Res>
-    extends _$ProfileActorEventCopyWithImpl<$Res>
-    implements _$OpenStatsCopyWith<$Res> {
-  __$OpenStatsCopyWithImpl(_OpenStats _value, $Res Function(_OpenStats) _then)
-      : super(_value, (v) => _then(v as _OpenStats));
-
-  @override
-  _OpenStats get _value => super._value as _OpenStats;
-}
-
-/// @nodoc
-
-class _$_OpenStats implements _OpenStats {
-  const _$_OpenStats();
-
-  @override
-  String toString() {
-    return 'ProfileActorEvent.openStats()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _OpenStats);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String userId) loadingOtherProfile,
-    required TResult Function() loadingOwnProfile,
-    required TResult Function() addedFollower,
-    required TResult Function() removedFollower,
-    required TResult Function() openStats,
-    required TResult Function() moreStats,
-  }) {
-    return openStats();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String userId)? loadingOtherProfile,
-    TResult Function()? loadingOwnProfile,
-    TResult Function()? addedFollower,
-    TResult Function()? removedFollower,
-    TResult Function()? openStats,
-    TResult Function()? moreStats,
-    required TResult orElse(),
-  }) {
-    if (openStats != null) {
-      return openStats();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_LoadingOtherProfile value) loadingOtherProfile,
-    required TResult Function(_LoadingOwnProfile value) loadingOwnProfile,
-    required TResult Function(_AddedFollower value) addedFollower,
-    required TResult Function(_RemovedFollower value) removedFollower,
-    required TResult Function(_OpenStats value) openStats,
-    required TResult Function(_MoreStats value) moreStats,
-  }) {
-    return openStats(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadingOtherProfile value)? loadingOtherProfile,
-    TResult Function(_LoadingOwnProfile value)? loadingOwnProfile,
-    TResult Function(_AddedFollower value)? addedFollower,
-    TResult Function(_RemovedFollower value)? removedFollower,
-    TResult Function(_OpenStats value)? openStats,
-    TResult Function(_MoreStats value)? moreStats,
-    required TResult orElse(),
-  }) {
-    if (openStats != null) {
-      return openStats(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _OpenStats implements ProfileActorEvent {
-  const factory _OpenStats() = _$_OpenStats;
-}
-
-/// @nodoc
-abstract class _$MoreStatsCopyWith<$Res> {
-  factory _$MoreStatsCopyWith(
-          _MoreStats value, $Res Function(_MoreStats) then) =
-      __$MoreStatsCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$MoreStatsCopyWithImpl<$Res>
-    extends _$ProfileActorEventCopyWithImpl<$Res>
-    implements _$MoreStatsCopyWith<$Res> {
-  __$MoreStatsCopyWithImpl(_MoreStats _value, $Res Function(_MoreStats) _then)
-      : super(_value, (v) => _then(v as _MoreStats));
-
-  @override
-  _MoreStats get _value => super._value as _MoreStats;
-}
-
-/// @nodoc
-
-class _$_MoreStats implements _MoreStats {
-  const _$_MoreStats();
-
-  @override
-  String toString() {
-    return 'ProfileActorEvent.moreStats()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _MoreStats);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String userId) loadingOtherProfile,
-    required TResult Function() loadingOwnProfile,
-    required TResult Function() addedFollower,
-    required TResult Function() removedFollower,
-    required TResult Function() openStats,
-    required TResult Function() moreStats,
-  }) {
-    return moreStats();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String userId)? loadingOtherProfile,
-    TResult Function()? loadingOwnProfile,
-    TResult Function()? addedFollower,
-    TResult Function()? removedFollower,
-    TResult Function()? openStats,
-    TResult Function()? moreStats,
-    required TResult orElse(),
-  }) {
-    if (moreStats != null) {
-      return moreStats();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_LoadingOtherProfile value) loadingOtherProfile,
-    required TResult Function(_LoadingOwnProfile value) loadingOwnProfile,
-    required TResult Function(_AddedFollower value) addedFollower,
-    required TResult Function(_RemovedFollower value) removedFollower,
-    required TResult Function(_OpenStats value) openStats,
-    required TResult Function(_MoreStats value) moreStats,
-  }) {
-    return moreStats(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadingOtherProfile value)? loadingOtherProfile,
-    TResult Function(_LoadingOwnProfile value)? loadingOwnProfile,
-    TResult Function(_AddedFollower value)? addedFollower,
-    TResult Function(_RemovedFollower value)? removedFollower,
-    TResult Function(_OpenStats value)? openStats,
-    TResult Function(_MoreStats value)? moreStats,
-    required TResult orElse(),
-  }) {
-    if (moreStats != null) {
-      return moreStats(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _MoreStats implements ProfileActorEvent {
-  const factory _MoreStats() = _$_MoreStats;
-}
-
-/// @nodoc
 class _$ProfileActorStateTearOff {
   const _$ProfileActorStateTearOff();
 
@@ -758,22 +288,12 @@ class _$ProfileActorStateTearOff {
       {required Either<DataFailure, Profile> failureOrUserProfile,
       required String ownId,
       required String userId,
-      required bool isLoading,
-      required bool isFollowing,
-      required Either<DataFailure, List<Profile>> failureOrFollowing,
-      required Either<DataFailure, List<Profile>> failureOrFollowers,
-      required Either<DataFailure, List<ForumPost>> failureOrForumsPosted,
-      required int statsDisplay}) {
+      required bool isLoading}) {
     return _ProfileActorState(
       failureOrUserProfile: failureOrUserProfile,
       ownId: ownId,
       userId: userId,
       isLoading: isLoading,
-      isFollowing: isFollowing,
-      failureOrFollowing: failureOrFollowing,
-      failureOrFollowers: failureOrFollowers,
-      failureOrForumsPosted: failureOrForumsPosted,
-      statsDisplay: statsDisplay,
     );
   }
 }
@@ -788,14 +308,6 @@ mixin _$ProfileActorState {
   String get ownId => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
-  bool get isFollowing => throw _privateConstructorUsedError;
-  Either<DataFailure, List<Profile>> get failureOrFollowing =>
-      throw _privateConstructorUsedError;
-  Either<DataFailure, List<Profile>> get failureOrFollowers =>
-      throw _privateConstructorUsedError;
-  Either<DataFailure, List<ForumPost>> get failureOrForumsPosted =>
-      throw _privateConstructorUsedError;
-  int get statsDisplay => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileActorStateCopyWith<ProfileActorState> get copyWith =>
@@ -811,12 +323,7 @@ abstract class $ProfileActorStateCopyWith<$Res> {
       {Either<DataFailure, Profile> failureOrUserProfile,
       String ownId,
       String userId,
-      bool isLoading,
-      bool isFollowing,
-      Either<DataFailure, List<Profile>> failureOrFollowing,
-      Either<DataFailure, List<Profile>> failureOrFollowers,
-      Either<DataFailure, List<ForumPost>> failureOrForumsPosted,
-      int statsDisplay});
+      bool isLoading});
 }
 
 /// @nodoc
@@ -834,11 +341,6 @@ class _$ProfileActorStateCopyWithImpl<$Res>
     Object? ownId = freezed,
     Object? userId = freezed,
     Object? isLoading = freezed,
-    Object? isFollowing = freezed,
-    Object? failureOrFollowing = freezed,
-    Object? failureOrFollowers = freezed,
-    Object? failureOrForumsPosted = freezed,
-    Object? statsDisplay = freezed,
   }) {
     return _then(_value.copyWith(
       failureOrUserProfile: failureOrUserProfile == freezed
@@ -857,26 +359,6 @@ class _$ProfileActorStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isFollowing: isFollowing == freezed
-          ? _value.isFollowing
-          : isFollowing // ignore: cast_nullable_to_non_nullable
-              as bool,
-      failureOrFollowing: failureOrFollowing == freezed
-          ? _value.failureOrFollowing
-          : failureOrFollowing // ignore: cast_nullable_to_non_nullable
-              as Either<DataFailure, List<Profile>>,
-      failureOrFollowers: failureOrFollowers == freezed
-          ? _value.failureOrFollowers
-          : failureOrFollowers // ignore: cast_nullable_to_non_nullable
-              as Either<DataFailure, List<Profile>>,
-      failureOrForumsPosted: failureOrForumsPosted == freezed
-          ? _value.failureOrForumsPosted
-          : failureOrForumsPosted // ignore: cast_nullable_to_non_nullable
-              as Either<DataFailure, List<ForumPost>>,
-      statsDisplay: statsDisplay == freezed
-          ? _value.statsDisplay
-          : statsDisplay // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -892,12 +374,7 @@ abstract class _$ProfileActorStateCopyWith<$Res>
       {Either<DataFailure, Profile> failureOrUserProfile,
       String ownId,
       String userId,
-      bool isLoading,
-      bool isFollowing,
-      Either<DataFailure, List<Profile>> failureOrFollowing,
-      Either<DataFailure, List<Profile>> failureOrFollowers,
-      Either<DataFailure, List<ForumPost>> failureOrForumsPosted,
-      int statsDisplay});
+      bool isLoading});
 }
 
 /// @nodoc
@@ -917,11 +394,6 @@ class __$ProfileActorStateCopyWithImpl<$Res>
     Object? ownId = freezed,
     Object? userId = freezed,
     Object? isLoading = freezed,
-    Object? isFollowing = freezed,
-    Object? failureOrFollowing = freezed,
-    Object? failureOrFollowers = freezed,
-    Object? failureOrForumsPosted = freezed,
-    Object? statsDisplay = freezed,
   }) {
     return _then(_ProfileActorState(
       failureOrUserProfile: failureOrUserProfile == freezed
@@ -940,26 +412,6 @@ class __$ProfileActorStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isFollowing: isFollowing == freezed
-          ? _value.isFollowing
-          : isFollowing // ignore: cast_nullable_to_non_nullable
-              as bool,
-      failureOrFollowing: failureOrFollowing == freezed
-          ? _value.failureOrFollowing
-          : failureOrFollowing // ignore: cast_nullable_to_non_nullable
-              as Either<DataFailure, List<Profile>>,
-      failureOrFollowers: failureOrFollowers == freezed
-          ? _value.failureOrFollowers
-          : failureOrFollowers // ignore: cast_nullable_to_non_nullable
-              as Either<DataFailure, List<Profile>>,
-      failureOrForumsPosted: failureOrForumsPosted == freezed
-          ? _value.failureOrForumsPosted
-          : failureOrForumsPosted // ignore: cast_nullable_to_non_nullable
-              as Either<DataFailure, List<ForumPost>>,
-      statsDisplay: statsDisplay == freezed
-          ? _value.statsDisplay
-          : statsDisplay // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -971,12 +423,7 @@ class _$_ProfileActorState implements _ProfileActorState {
       {required this.failureOrUserProfile,
       required this.ownId,
       required this.userId,
-      required this.isLoading,
-      required this.isFollowing,
-      required this.failureOrFollowing,
-      required this.failureOrFollowers,
-      required this.failureOrForumsPosted,
-      required this.statsDisplay});
+      required this.isLoading});
 
   @override
   final Either<DataFailure, Profile> failureOrUserProfile;
@@ -986,20 +433,10 @@ class _$_ProfileActorState implements _ProfileActorState {
   final String userId;
   @override
   final bool isLoading;
-  @override
-  final bool isFollowing;
-  @override
-  final Either<DataFailure, List<Profile>> failureOrFollowing;
-  @override
-  final Either<DataFailure, List<Profile>> failureOrFollowers;
-  @override
-  final Either<DataFailure, List<ForumPost>> failureOrForumsPosted;
-  @override
-  final int statsDisplay;
 
   @override
   String toString() {
-    return 'ProfileActorState(failureOrUserProfile: $failureOrUserProfile, ownId: $ownId, userId: $userId, isLoading: $isLoading, isFollowing: $isFollowing, failureOrFollowing: $failureOrFollowing, failureOrFollowers: $failureOrFollowers, failureOrForumsPosted: $failureOrForumsPosted, statsDisplay: $statsDisplay)';
+    return 'ProfileActorState(failureOrUserProfile: $failureOrUserProfile, ownId: $ownId, userId: $userId, isLoading: $isLoading)';
   }
 
   @override
@@ -1015,22 +452,7 @@ class _$_ProfileActorState implements _ProfileActorState {
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
             (identical(other.isLoading, isLoading) ||
                 const DeepCollectionEquality()
-                    .equals(other.isLoading, isLoading)) &&
-            (identical(other.isFollowing, isFollowing) ||
-                const DeepCollectionEquality()
-                    .equals(other.isFollowing, isFollowing)) &&
-            (identical(other.failureOrFollowing, failureOrFollowing) ||
-                const DeepCollectionEquality()
-                    .equals(other.failureOrFollowing, failureOrFollowing)) &&
-            (identical(other.failureOrFollowers, failureOrFollowers) ||
-                const DeepCollectionEquality()
-                    .equals(other.failureOrFollowers, failureOrFollowers)) &&
-            (identical(other.failureOrForumsPosted, failureOrForumsPosted) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrForumsPosted, failureOrForumsPosted)) &&
-            (identical(other.statsDisplay, statsDisplay) ||
-                const DeepCollectionEquality()
-                    .equals(other.statsDisplay, statsDisplay)));
+                    .equals(other.isLoading, isLoading)));
   }
 
   @override
@@ -1039,12 +461,7 @@ class _$_ProfileActorState implements _ProfileActorState {
       const DeepCollectionEquality().hash(failureOrUserProfile) ^
       const DeepCollectionEquality().hash(ownId) ^
       const DeepCollectionEquality().hash(userId) ^
-      const DeepCollectionEquality().hash(isLoading) ^
-      const DeepCollectionEquality().hash(isFollowing) ^
-      const DeepCollectionEquality().hash(failureOrFollowing) ^
-      const DeepCollectionEquality().hash(failureOrFollowers) ^
-      const DeepCollectionEquality().hash(failureOrForumsPosted) ^
-      const DeepCollectionEquality().hash(statsDisplay);
+      const DeepCollectionEquality().hash(isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -1057,12 +474,7 @@ abstract class _ProfileActorState implements ProfileActorState {
       {required Either<DataFailure, Profile> failureOrUserProfile,
       required String ownId,
       required String userId,
-      required bool isLoading,
-      required bool isFollowing,
-      required Either<DataFailure, List<Profile>> failureOrFollowing,
-      required Either<DataFailure, List<Profile>> failureOrFollowers,
-      required Either<DataFailure, List<ForumPost>> failureOrForumsPosted,
-      required int statsDisplay}) = _$_ProfileActorState;
+      required bool isLoading}) = _$_ProfileActorState;
 
   @override
   Either<DataFailure, Profile> get failureOrUserProfile =>
@@ -1073,19 +485,6 @@ abstract class _ProfileActorState implements ProfileActorState {
   String get userId => throw _privateConstructorUsedError;
   @override
   bool get isLoading => throw _privateConstructorUsedError;
-  @override
-  bool get isFollowing => throw _privateConstructorUsedError;
-  @override
-  Either<DataFailure, List<Profile>> get failureOrFollowing =>
-      throw _privateConstructorUsedError;
-  @override
-  Either<DataFailure, List<Profile>> get failureOrFollowers =>
-      throw _privateConstructorUsedError;
-  @override
-  Either<DataFailure, List<ForumPost>> get failureOrForumsPosted =>
-      throw _privateConstructorUsedError;
-  @override
-  int get statsDisplay => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ProfileActorStateCopyWith<_ProfileActorState> get copyWith =>

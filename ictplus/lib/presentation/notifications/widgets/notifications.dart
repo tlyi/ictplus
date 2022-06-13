@@ -55,19 +55,19 @@ class Notifications extends StatelessWidget {
                     final notificationType = notification.notificationType;
                     final profile = state.profiles[index];
                     String notificationTitle = '';
-                    if (notificationType == 'forumLike') {
-                      notificationTitle =
-                          'Your post "${notification.title}" got a new like';
-                    } else if (notificationType == 'commentLike') {
-                      notificationTitle =
-                          'Your comment on "${notification.title}" got a new like';
-                    } else if (notificationType == 'newComment') {
-                      notificationTitle =
-                          '@${profile.username.getOrCrash()} left a comment on "${notification.title}"';
-                    } else if (notificationType == 'newFollower') {
-                      notificationTitle =
-                          '@${profile.username.getOrCrash()} just followed you';
-                    }
+                    // if (notificationType == 'forumLike') {
+                    //   notificationTitle =
+                    //       'Your post "${notification.title}" got a new like';
+                    // } else if (notificationType == 'commentLike') {
+                    //   notificationTitle =
+                    //       'Your comment on "${notification.title}" got a new like';
+                    // } else if (notificationType == 'newComment') {
+                    //   notificationTitle =
+                    //       '@${profile.username.getOrCrash()} left a comment on "${notification.title}"';
+                    // } else if (notificationType == 'newFollower') {
+                    //   notificationTitle =
+                    //       '@${profile.username.getOrCrash()} just followed you';
+                    // }
                     return Card(
                       child: ListTile(
                         leading: (notificationType == 'newComment' ||
@@ -104,11 +104,7 @@ class Notifications extends StatelessWidget {
                           if (notificationType == 'newFollower') {
                             context.pushRoute(
                                 OtherProfileRoute(userProfile: profile));
-                          } else {
-                            context.pushRoute(ForumRoute(
-                                forumId: notification.postId,
-                                pollAdded: notification.pollAdded));
-                          }
+                          } else {}
                         },
                       ),
                     );

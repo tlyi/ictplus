@@ -11,6 +11,7 @@ import 'package:ictplus/domain/core/constants.dart' as constants;
 AppBar appBar({
   required BuildContext context,
   required String header,
+  bool showLogo = false,
   bool canGoBack = false,
   bool canClose = false,
   bool canSignOut = false,
@@ -68,12 +69,14 @@ AppBar appBar({
                     );
                   })
                 : Container(),
-    title: Text(header,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: fontSize,
-        )),
-    backgroundColor: Colors.white,
+    title: showLogo == true
+        ? Image(image: AssetImage('images/ict_white_logo.png'), height: 50)
+        : Text(header,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: fontSize,
+            )),
+    backgroundColor: Colors.black,
     centerTitle: true,
     actions: [
       if (notifications)

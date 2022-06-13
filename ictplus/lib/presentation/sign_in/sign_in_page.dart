@@ -11,31 +11,54 @@ class SignInPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<SignInFormBloc>(),
       child: DismissKeyboard(
-        child: Scaffold(
-          body: Container(
-            color: Colors.black,
-            alignment: Alignment.center,
-            child: SingleChildScrollView(
-              child: ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxHeight: MediaQuery.of(context).size.height -
-                      MediaQuery.of(context).padding.top,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Image.asset(
-                      'images/ict_white_logo.png',
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      height: MediaQuery.of(context).size.width * 0.3,
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/bg_image.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                gradient: LinearGradient(
+                    begin: FractionalOffset.topCenter,
+                    end: FractionalOffset.bottomCenter,
+                    colors: [
+                      Colors.grey.withOpacity(0.0),
+                      Colors.black,
+                    ],
+                    stops: [
+                      0.0,
+                      0.8,
+                    ])),
+            child: Scaffold(
+              backgroundColor: Colors.transparent,
+              body: Stack(children: <Widget>[
+                Container(
+                  color: Colors.transparent,
+                  alignment: Alignment.topCenter,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        SizedBox(height: 80),
+                        Image.asset(
+                          'images/ict_white_logo.png',
+                          width: MediaQuery.of(context).size.width * 0.3,
+                          height: MediaQuery.of(context).size.width * 0.3,
+                        ),
+                        const Padding(padding: const EdgeInsets.only(top: 140)),
+                        Container(
+                          alignment: Alignment.bottomCenter,
+                          child: SignInForm(),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 30, right: 30),
-                      child: SignInForm(),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+              ]),
             ),
           ),
         ),

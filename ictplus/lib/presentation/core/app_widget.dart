@@ -28,6 +28,7 @@ class AppWidget extends StatelessWidget {
             }
           },
           child: MaterialApp(
+            theme: ThemeData(primaryColor: Colors.white),
             debugShowCheckedModeBanner: false,
             home: MaterialApp.router(
               routerDelegate: _appRouter.delegate(),

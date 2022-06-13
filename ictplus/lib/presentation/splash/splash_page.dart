@@ -22,7 +22,7 @@ class SplashPage extends StatelessWidget {
             context.replaceRoute(const SignInRoute());
           },
           unverified: (_) {
-            context.replaceRoute(const VerifyEmailRoute());
+            context.replaceRoute(const HomeRoute());
           },
           verifying: (_) {},
           verified: (_) {
@@ -31,7 +31,7 @@ class SplashPage extends StatelessWidget {
                 .add(const AuthEvent.registeredCheckRequested());
           },
           unregistered: (_) {
-            context.replaceRoute(const RegisterProfileRoute());
+            // context.replaceRoute(const RegisterProfileRoute());
           },
           registered: (state) {
             context.read<NotifCounterWatcherBloc>().add(
@@ -52,7 +52,7 @@ class SplashPage extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('images/ict_white_logo.png', height: 150),
+            Image.asset('images/ict_white_logo.png', height: 100),
             const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -60,7 +60,7 @@ class SplashPage extends StatelessWidget {
                 const SizedBox(
                     width: 200,
                     child: LinearProgressIndicator(
-                      color: constants.THEME_LIGHT_BLUE,
+                      color: constants.THEME_ORANGE,
                       backgroundColor: Colors.white,
                     )),
               ],

@@ -27,6 +27,7 @@ class ProfilePage extends StatelessWidget {
           canGoBack: canGoBack,
           canSignOut: true,
         ),
+        backgroundColor: Colors.black,
         bottomNavigationBar: const NavigationBar(),
         body: SingleChildScrollView(child: OwnProfile()),
       ),

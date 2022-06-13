@@ -12,41 +12,26 @@ abstract class ProfileDto implements _$ProfileDto {
 
   const factory ProfileDto({
     required String photoUrl,
-    required String username,
-    required String course,
-    required String bio,
-    required List<String> modules,
+    required String rank,
+    required String fullName,
     required String uuid,
-    required List<String> forumsPosted,
-    required List<String> following,
-    required List<String> followedBy,
   }) = _ProfileDto;
 
   factory ProfileDto.fromDomain(Profile profile) {
     return ProfileDto(
       photoUrl: profile.photoUrl,
-      username: profile.username.getOrCrash(),
-      course: profile.course.getOrCrash(),
-      bio: profile.bio.getOrCrash(),
-      modules: profile.modules,
+      rank: profile.rank,
+      fullName: profile.fullName,
       uuid: profile.uuid,
-      forumsPosted: profile.forumsPosted,
-      following: profile.following,
-      followedBy: profile.followedBy,
     );
   }
 
   Profile toDomain() {
     return Profile(
       photoUrl: photoUrl,
-      username: Username(username),
-      course: Course(course),
-      bio: Bio(bio),
-      modules: modules,
+      rank: rank,
+      fullName: fullName,
       uuid: uuid,
-      forumsPosted: forumsPosted,
-      following: following,
-      followedBy: followedBy,
     );
   }
 
