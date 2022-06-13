@@ -21,7 +21,7 @@ class OtherProfilePage extends StatelessWidget {
       child: Scaffold(
         appBar: appBar(
           context: context,
-          header: userProfile.username.getOrCrash(),
+          header: '', //userProfile.username.getOrCrash(),
           canGoBack: true,
         ),
         bottomNavigationBar: const NavigationBar(),

@@ -46,12 +46,13 @@ class SignInForm extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   _BuildSingPassButton(),
+                  const SizedBox(height: 50),
                   _BuildIC(),
                   const SizedBox(height: 20),
                   _BuildPassword(),
                   _BuildLogInButton(),
                   _BuildForgotPassword(),
-                  _BuildRegisterButton(),
+                  //   _BuildRegisterButton(),
                   if (state.isSubmitting) const LinearProgressIndicator(),
                 ],
               ),
@@ -67,25 +68,31 @@ class _BuildIC extends StatelessWidget {
     return BlocBuilder<SignInFormBloc, SignInFormState>(
       builder: (context, state) {
         return TextFormField(
+            style: TextStyle(color: Colors.white),
+            cursorColor: Colors.white,
             decoration: InputDecoration(
+              hintStyle: TextStyle(color: Colors.white),
+              labelStyle: TextStyle(color: Colors.white),
               filled: true,
               fillColor: constants.THEME_TRANSLUCENT_GRAY,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20.0),
+                borderSide: BorderSide.none,
               ),
               labelText: 'Enter NRIC',
+              prefixIcon: Icon(Icons.person, color: Colors.white),
             ),
             autocorrect: false,
             onChanged: (value) {
+              final String emailString = '$value@u.nus.edu';
               context
                   .read<SignInFormBloc>()
-                  .add(SignInFormEvent.emailChanged(value));
+                  .add(SignInFormEvent.emailChanged(emailString));
             },
             validator: (_) =>
                 context.read<SignInFormBloc>().state.emailAddress.value.fold(
                       (f) => f.maybeMap(
-                        invalidEmail: (_) =>
-                            'Invalid NUSNET ID, please use format eXXXXXXX',
+                        invalidEmail: (_) => 'Invalid NRIC',
                         orElse: () => null,
                       ),
                       (_) => null,
@@ -105,13 +112,19 @@ class _BuildPassword extends StatelessWidget {
     return BlocBuilder<SignInFormBloc, SignInFormState>(
       builder: (context, state) {
         return TextFormField(
+            style: TextStyle(color: Colors.white),
+            cursorColor: Colors.white,
             decoration: InputDecoration(
+              hintStyle: TextStyle(color: Colors.white),
+              labelStyle: TextStyle(color: Colors.white),
               filled: true,
               fillColor: constants.THEME_TRANSLUCENT_GRAY,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20.0),
+                borderSide: BorderSide.none,
               ),
               labelText: "Enter Password",
+              prefixIcon: Icon(Icons.vpn_key, color: Colors.white),
             ),
             obscureText: true,
             autocorrect: false,
@@ -134,11 +147,15 @@ class _BuildLogInButton extends StatelessWidget {
       builder: (context, state) {
         return Container(
           margin: const EdgeInsets.only(top: 20.0),
-          width: MediaQuery.of(context).size.width * 0.62,
+          width: MediaQuery.of(context).size.width * 0.5,
           child: ElevatedButton(
               style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  )),
                   backgroundColor:
-                      MaterialStateProperty.all(constants.THEME_BLUE)),
+                      MaterialStateProperty.all(constants.THEME_ORANGE)),
               onPressed: () {
                 context.read<SignInFormBloc>().add(
                       const SignInFormEvent.signInWithEmailAndPasswordPressed(),
@@ -177,7 +194,7 @@ class _BuildRegisterButton extends StatelessWidget {
       builder: (context, state) {
         return TextButton(
             onPressed: () {
-              context.pushRoute(const RegisterRoute());
+              //  context.pushRoute(const RegisterRoute());
             },
             child: const Text('No account yet? Register Now!',
                 style: TextStyle(
@@ -208,7 +225,7 @@ class _BuildSingPassButton extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20.0),
                   ))),
               onPressed: () {
-                context.pushRoute(const RegisterRoute());
+                context.pushRoute(const SingPassRoute());
               },
               child: const Text("Continue with Singpass")),
         );

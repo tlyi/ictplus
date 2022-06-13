@@ -13,6 +13,7 @@ class NavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
+          color: Colors.black,
           border: Border(top: BorderSide(color: Colors.black54, width: 0.4))),
       height: 70,
       padding: const EdgeInsets.only(
@@ -25,85 +26,11 @@ class NavigationBar extends StatelessWidget {
           IconButton(
             icon: const Image(
               image: AssetImage('images/ict_black_logo.png'),
+              color: Colors.white,
             ),
             tooltip: 'Home',
             onPressed: () {
               context.replaceRoute(const HomeRoute());
-            },
-          ),
-          Stack(children: [
-            IconButton(
-              icon: const Icon(
-                Icons.forum,
-                size: 35,
-              ),
-              tooltip: 'Chats',
-              onPressed: () {
-                context.replaceRoute(const ChatListRoute());
-              },
-            ),
-            Positioned(
-              right: 0,
-              child:
-                  BlocBuilder<ChatCounterWatcherBloc, ChatCounterWatcherState>(
-                builder: (context, state) {
-                  if (state is LoadSuccess) {
-                    if (state.unreadChatCounter == 0) {
-                      return Container();
-                    } else {
-                      return ClipOval(
-                        child: Container(
-                            alignment: Alignment.center,
-                            width: 20,
-                            height: 20,
-                            color: constants.THEME_NOTIF_BG,
-                            child: Text(
-                                state.unreadChatCounter >= 100
-                                    ? '+'
-                                    : state.unreadChatCounter.toString(),
-                                style: const TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w400))),
-                      );
-                    }
-                  } else {
-                    return ClipOval(
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: 20,
-                        height: 20,
-                        color: constants.THEME_NOTIF_BG,
-                        child: const Padding(
-                          padding: EdgeInsets.all(5.0),
-                          child: CircularProgressIndicator(
-                              color: Colors.white, strokeWidth: 1),
-                        ),
-                      ),
-                    );
-                  }
-                },
-              ),
-            ),
-          ]),
-          IconButton(
-            icon: const Icon(
-              Icons.near_me,
-              size: 35,
-            ),
-            tooltip: 'Location Chats',
-            onPressed: () {
-              context.replaceRoute(const LocationChatRoute());
-            },
-          ),
-          IconButton(
-            icon: const Icon(
-              Icons.view_list_rounded,
-              size: 35,
-            ),
-            tooltip: 'Forums',
-            onPressed: () {
-              context.replaceRoute(const ForumTabRoute());
             },
           ),
           IconButton(
@@ -111,6 +38,7 @@ class NavigationBar extends StatelessWidget {
               Icons.account_circle,
               size: 35,
             ),
+            color: Colors.white,
             tooltip: 'Profile',
             onPressed: () {
               context.replaceRoute(ProfileRoute(canGoBack: false));

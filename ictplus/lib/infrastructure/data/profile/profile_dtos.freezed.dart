@@ -22,24 +22,14 @@ class _$ProfileDtoTearOff {
 
   _ProfileDto call(
       {required String photoUrl,
-      required String username,
-      required String course,
-      required String bio,
-      required List<String> modules,
-      required String uuid,
-      required List<String> forumsPosted,
-      required List<String> following,
-      required List<String> followedBy}) {
+      required String rank,
+      required String fullName,
+      required String uuid}) {
     return _ProfileDto(
       photoUrl: photoUrl,
-      username: username,
-      course: course,
-      bio: bio,
-      modules: modules,
+      rank: rank,
+      fullName: fullName,
       uuid: uuid,
-      forumsPosted: forumsPosted,
-      following: following,
-      followedBy: followedBy,
     );
   }
 
@@ -54,14 +44,9 @@ const $ProfileDto = _$ProfileDtoTearOff();
 /// @nodoc
 mixin _$ProfileDto {
   String get photoUrl => throw _privateConstructorUsedError;
-  String get username => throw _privateConstructorUsedError;
-  String get course => throw _privateConstructorUsedError;
-  String get bio => throw _privateConstructorUsedError;
-  List<String> get modules => throw _privateConstructorUsedError;
+  String get rank => throw _privateConstructorUsedError;
+  String get fullName => throw _privateConstructorUsedError;
   String get uuid => throw _privateConstructorUsedError;
-  List<String> get forumsPosted => throw _privateConstructorUsedError;
-  List<String> get following => throw _privateConstructorUsedError;
-  List<String> get followedBy => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -74,16 +59,7 @@ abstract class $ProfileDtoCopyWith<$Res> {
   factory $ProfileDtoCopyWith(
           ProfileDto value, $Res Function(ProfileDto) then) =
       _$ProfileDtoCopyWithImpl<$Res>;
-  $Res call(
-      {String photoUrl,
-      String username,
-      String course,
-      String bio,
-      List<String> modules,
-      String uuid,
-      List<String> forumsPosted,
-      List<String> following,
-      List<String> followedBy});
+  $Res call({String photoUrl, String rank, String fullName, String uuid});
 }
 
 /// @nodoc
@@ -97,52 +73,27 @@ class _$ProfileDtoCopyWithImpl<$Res> implements $ProfileDtoCopyWith<$Res> {
   @override
   $Res call({
     Object? photoUrl = freezed,
-    Object? username = freezed,
-    Object? course = freezed,
-    Object? bio = freezed,
-    Object? modules = freezed,
+    Object? rank = freezed,
+    Object? fullName = freezed,
     Object? uuid = freezed,
-    Object? forumsPosted = freezed,
-    Object? following = freezed,
-    Object? followedBy = freezed,
   }) {
     return _then(_value.copyWith(
       photoUrl: photoUrl == freezed
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
+      rank: rank == freezed
+          ? _value.rank
+          : rank // ignore: cast_nullable_to_non_nullable
               as String,
-      course: course == freezed
-          ? _value.course
-          : course // ignore: cast_nullable_to_non_nullable
+      fullName: fullName == freezed
+          ? _value.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
               as String,
-      bio: bio == freezed
-          ? _value.bio
-          : bio // ignore: cast_nullable_to_non_nullable
-              as String,
-      modules: modules == freezed
-          ? _value.modules
-          : modules // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       uuid: uuid == freezed
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      forumsPosted: forumsPosted == freezed
-          ? _value.forumsPosted
-          : forumsPosted // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      following: following == freezed
-          ? _value.following
-          : following // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      followedBy: followedBy == freezed
-          ? _value.followedBy
-          : followedBy // ignore: cast_nullable_to_non_nullable
-              as List<String>,
     ));
   }
 }
@@ -153,16 +104,7 @@ abstract class _$ProfileDtoCopyWith<$Res> implements $ProfileDtoCopyWith<$Res> {
           _ProfileDto value, $Res Function(_ProfileDto) then) =
       __$ProfileDtoCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String photoUrl,
-      String username,
-      String course,
-      String bio,
-      List<String> modules,
-      String uuid,
-      List<String> forumsPosted,
-      List<String> following,
-      List<String> followedBy});
+  $Res call({String photoUrl, String rank, String fullName, String uuid});
 }
 
 /// @nodoc
@@ -178,52 +120,27 @@ class __$ProfileDtoCopyWithImpl<$Res> extends _$ProfileDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? photoUrl = freezed,
-    Object? username = freezed,
-    Object? course = freezed,
-    Object? bio = freezed,
-    Object? modules = freezed,
+    Object? rank = freezed,
+    Object? fullName = freezed,
     Object? uuid = freezed,
-    Object? forumsPosted = freezed,
-    Object? following = freezed,
-    Object? followedBy = freezed,
   }) {
     return _then(_ProfileDto(
       photoUrl: photoUrl == freezed
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
+      rank: rank == freezed
+          ? _value.rank
+          : rank // ignore: cast_nullable_to_non_nullable
               as String,
-      course: course == freezed
-          ? _value.course
-          : course // ignore: cast_nullable_to_non_nullable
+      fullName: fullName == freezed
+          ? _value.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
               as String,
-      bio: bio == freezed
-          ? _value.bio
-          : bio // ignore: cast_nullable_to_non_nullable
-              as String,
-      modules: modules == freezed
-          ? _value.modules
-          : modules // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       uuid: uuid == freezed
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      forumsPosted: forumsPosted == freezed
-          ? _value.forumsPosted
-          : forumsPosted // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      following: following == freezed
-          ? _value.following
-          : following // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      followedBy: followedBy == freezed
-          ? _value.followedBy
-          : followedBy // ignore: cast_nullable_to_non_nullable
-              as List<String>,
     ));
   }
 }
@@ -233,14 +150,9 @@ class __$ProfileDtoCopyWithImpl<$Res> extends _$ProfileDtoCopyWithImpl<$Res>
 class _$_ProfileDto extends _ProfileDto {
   const _$_ProfileDto(
       {required this.photoUrl,
-      required this.username,
-      required this.course,
-      required this.bio,
-      required this.modules,
-      required this.uuid,
-      required this.forumsPosted,
-      required this.following,
-      required this.followedBy})
+      required this.rank,
+      required this.fullName,
+      required this.uuid})
       : super._();
 
   factory _$_ProfileDto.fromJson(Map<String, dynamic> json) =>
@@ -249,25 +161,15 @@ class _$_ProfileDto extends _ProfileDto {
   @override
   final String photoUrl;
   @override
-  final String username;
+  final String rank;
   @override
-  final String course;
-  @override
-  final String bio;
-  @override
-  final List<String> modules;
+  final String fullName;
   @override
   final String uuid;
-  @override
-  final List<String> forumsPosted;
-  @override
-  final List<String> following;
-  @override
-  final List<String> followedBy;
 
   @override
   String toString() {
-    return 'ProfileDto(photoUrl: $photoUrl, username: $username, course: $course, bio: $bio, modules: $modules, uuid: $uuid, forumsPosted: $forumsPosted, following: $following, followedBy: $followedBy)';
+    return 'ProfileDto(photoUrl: $photoUrl, rank: $rank, fullName: $fullName, uuid: $uuid)';
   }
 
   @override
@@ -277,41 +179,22 @@ class _$_ProfileDto extends _ProfileDto {
             (identical(other.photoUrl, photoUrl) ||
                 const DeepCollectionEquality()
                     .equals(other.photoUrl, photoUrl)) &&
-            (identical(other.username, username) ||
+            (identical(other.rank, rank) ||
+                const DeepCollectionEquality().equals(other.rank, rank)) &&
+            (identical(other.fullName, fullName) ||
                 const DeepCollectionEquality()
-                    .equals(other.username, username)) &&
-            (identical(other.course, course) ||
-                const DeepCollectionEquality().equals(other.course, course)) &&
-            (identical(other.bio, bio) ||
-                const DeepCollectionEquality().equals(other.bio, bio)) &&
-            (identical(other.modules, modules) ||
-                const DeepCollectionEquality()
-                    .equals(other.modules, modules)) &&
+                    .equals(other.fullName, fullName)) &&
             (identical(other.uuid, uuid) ||
-                const DeepCollectionEquality().equals(other.uuid, uuid)) &&
-            (identical(other.forumsPosted, forumsPosted) ||
-                const DeepCollectionEquality()
-                    .equals(other.forumsPosted, forumsPosted)) &&
-            (identical(other.following, following) ||
-                const DeepCollectionEquality()
-                    .equals(other.following, following)) &&
-            (identical(other.followedBy, followedBy) ||
-                const DeepCollectionEquality()
-                    .equals(other.followedBy, followedBy)));
+                const DeepCollectionEquality().equals(other.uuid, uuid)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(photoUrl) ^
-      const DeepCollectionEquality().hash(username) ^
-      const DeepCollectionEquality().hash(course) ^
-      const DeepCollectionEquality().hash(bio) ^
-      const DeepCollectionEquality().hash(modules) ^
-      const DeepCollectionEquality().hash(uuid) ^
-      const DeepCollectionEquality().hash(forumsPosted) ^
-      const DeepCollectionEquality().hash(following) ^
-      const DeepCollectionEquality().hash(followedBy);
+      const DeepCollectionEquality().hash(rank) ^
+      const DeepCollectionEquality().hash(fullName) ^
+      const DeepCollectionEquality().hash(uuid);
 
   @JsonKey(ignore: true)
   @override
@@ -327,14 +210,9 @@ class _$_ProfileDto extends _ProfileDto {
 abstract class _ProfileDto extends ProfileDto {
   const factory _ProfileDto(
       {required String photoUrl,
-      required String username,
-      required String course,
-      required String bio,
-      required List<String> modules,
-      required String uuid,
-      required List<String> forumsPosted,
-      required List<String> following,
-      required List<String> followedBy}) = _$_ProfileDto;
+      required String rank,
+      required String fullName,
+      required String uuid}) = _$_ProfileDto;
   const _ProfileDto._() : super._();
 
   factory _ProfileDto.fromJson(Map<String, dynamic> json) =
@@ -343,21 +221,11 @@ abstract class _ProfileDto extends ProfileDto {
   @override
   String get photoUrl => throw _privateConstructorUsedError;
   @override
-  String get username => throw _privateConstructorUsedError;
+  String get rank => throw _privateConstructorUsedError;
   @override
-  String get course => throw _privateConstructorUsedError;
-  @override
-  String get bio => throw _privateConstructorUsedError;
-  @override
-  List<String> get modules => throw _privateConstructorUsedError;
+  String get fullName => throw _privateConstructorUsedError;
   @override
   String get uuid => throw _privateConstructorUsedError;
-  @override
-  List<String> get forumsPosted => throw _privateConstructorUsedError;
-  @override
-  List<String> get following => throw _privateConstructorUsedError;
-  @override
-  List<String> get followedBy => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ProfileDtoCopyWith<_ProfileDto> get copyWith =>

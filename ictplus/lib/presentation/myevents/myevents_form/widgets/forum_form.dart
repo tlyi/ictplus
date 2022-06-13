@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
-import 'package:ictplus/application/forum/forum_form/forum_form_bloc.dart';
+import 'package:ictplus/application/myevents/myevents_form/myevents_form_bloc.dart';
 import 'package:ictplus/presentation/core/image_picker.dart';
 
 import 'package:auto_route/auto_route.dart';
@@ -61,16 +61,9 @@ class ForumForm extends StatelessWidget {
                 const SizedBox(height: 15),
                 const _BuildBody(),
                 const SizedBox(height: 15),
-                const _BuildTag(),
                 const SizedBox(height: 15),
                 if (photoAdded) const _BuildImage(),
                 if (pollAdded) _BuildPoll(),
-                Row(
-                  children: <Widget>[
-                    _BuildAnonymousSwitch(),
-                    const Text('Post Anonymously'),
-                  ],
-                ),
                 Row(
                   children: <Widget>[
                     _BuildAddImageButton(),
@@ -114,62 +107,6 @@ class _BuildTitle extends StatelessWidget {
                     'Title too long, maximum of 50 characters only',
                 orElse: () => null),
             (_) => null);
-      },
-    );
-  }
-}
-
-class _BuildTag extends StatelessWidget {
-  const _BuildTag({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<ForumFormBloc, ForumFormState>(
-      builder: (context, state) {
-        if (context.read<ForumFormBloc>().state.forumPost.tag == '') {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text('Tag your post to a module:'),
-              TypeAheadField(suggestionsCallback: (value) async {
-                context
-                    .read<ForumFormBloc>()
-                    .add(ForumFormEvent.searchedModule(value));
-                return Future.delayed(const Duration(milliseconds: 500), () {
-                  return context
-                      .read<ForumFormBloc>()
-                      .state
-                      .moduleSuggestions
-                      .getOrElse(() => []);
-                });
-              }, itemBuilder: (context, suggestion) {
-                return ListTile(title: Text(suggestion.toString()));
-              }, onSuggestionSelected: (String value) {
-                context
-                    .read<ForumFormBloc>()
-                    .add(ForumFormEvent.tagChanged(value));
-              })
-            ],
-          );
-        } else {
-          return Align(
-            alignment: Alignment.centerLeft,
-            child: Chip(
-                label: Text(context.read<ForumFormBloc>().state.forumPost.tag),
-                labelPadding: const EdgeInsets.only(left: 4),
-                deleteIcon: Icon(
-                  Icons.close_rounded,
-                  color: Colors.grey[700],
-                  size: 18,
-                ),
-                deleteIconColor: Colors.transparent,
-                onDeleted: () {
-                  context
-                      .read<ForumFormBloc>()
-                      .add(const ForumFormEvent.tagChanged(''));
-                }),
-          );
-        }
       },
     );
   }
@@ -319,20 +256,6 @@ class _BuildPoll extends StatelessWidget {
           ),
       ],
     );
-  }
-}
-
-class _BuildAnonymousSwitch extends StatelessWidget {
-  const _BuildAnonymousSwitch({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    bool isAnon = context.read<ForumFormBloc>().state.forumPost.isAnon;
-    return Switch(
-        onChanged: (bool value) => context
-            .read<ForumFormBloc>()
-            .add(const ForumFormEvent.anonStateChanged()),
-        value: isAnon);
   }
 }
 

@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:ictplus/domain/data/data_failure.dart';
-import 'package:ictplus/domain/data/forum/comment/comment.dart';
-import 'package:ictplus/domain/data/forum/forum_post/forum_post.dart';
-import 'package:ictplus/domain/data/forum/poll/poll.dart';
+import 'package:ictplus/domain/data/myevents/comment/comment.dart';
+import 'package:ictplus/domain/data/myevents/forum_post/forum_post.dart';
+import 'package:ictplus/domain/data/myevents/poll/poll.dart';
 import 'package:ictplus/domain/data/profile/profile.dart';
 import 'package:ictplus/domain/mods/mod.dart';
 
