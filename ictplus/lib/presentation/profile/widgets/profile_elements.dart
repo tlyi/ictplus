@@ -25,7 +25,7 @@ class ProfileElements extends StatelessWidget {
     return Stack(
       alignment: Alignment.topLeft,
       children: [
-        WaveHeader(),
+        //   WaveHeader(),
         Container(
           alignment: Alignment.topLeft,
           padding: const EdgeInsets.only(
@@ -60,7 +60,7 @@ class ProfileHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         GestureDetector(
@@ -68,8 +68,8 @@ class ProfileHeader extends StatelessWidget {
               photoUrl: userProfile.photoUrl, tag: "profilePhoto")),
           child: Container(
             alignment: Alignment.center,
-            width: 120,
-            height: 120,
+            width: 70,
+            height: 70,
             decoration: const BoxDecoration(
                 shape: BoxShape.circle, color: Colors.white),
             child: ClipOval(
@@ -77,8 +77,8 @@ class ProfileHeader extends StatelessWidget {
                 tag: "profilePhoto",
                 child: CachedNetworkImage(
                     fit: BoxFit.cover,
-                    height: 120,
-                    width: 120,
+                    height: 70,
+                    width: 70,
                     imageUrl: userProfile.photoUrl,
                     placeholder: (context, url) =>
                         const Center(child: CircularProgressIndicator())),
@@ -86,16 +86,23 @@ class ProfileHeader extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 5),
-        Text(
-          userProfile.fullName,
-          style: const TextStyle(
-              fontFamily: 'Montserrat',
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.white),
-        ),
-        const SizedBox(height: 5),
+        const SizedBox(width: 30),
+        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            userProfile.rank,
+            style: const TextStyle(
+                fontFamily: 'Montserrat', fontSize: 15, color: Colors.white),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            userProfile.fullName,
+            style: const TextStyle(
+                fontFamily: 'Montserrat',
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white),
+          ),
+        ]),
         const SizedBox(height: 10),
       ],
     );

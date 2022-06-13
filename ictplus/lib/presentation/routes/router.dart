@@ -2,6 +2,8 @@ import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:ictplus/presentation/core/full_screen_photo.dart';
 import 'package:ictplus/presentation/home/home_page.dart';
+import 'package:ictplus/presentation/myevents/forum_page.dart';
+import 'package:ictplus/presentation/myevents/missing_items_page.dart';
 import 'package:ictplus/presentation/notifications/notification_page.dart';
 import 'package:ictplus/presentation/profile/other_profile_page.dart';
 import 'package:ictplus/presentation/profile/profile_page.dart';
@@ -13,7 +15,7 @@ import 'package:ictplus/presentation/splash/splash_page.dart';
 @AdaptiveAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: SplashPage), //, initial: true),
+    AutoRoute(page: SplashPage, initial: true),
     AutoRoute(page: SignInPage),
     AutoRoute(page: HomePage),
     AutoRoute(page: ResetPasswordPage),
@@ -25,7 +27,8 @@ import 'package:ictplus/presentation/splash/splash_page.dart';
     // AutoRoute(page: ForumFormPage, initial: true), //, fullscreenDialog: true), --> for commanders?
     // AutoRoute(page: ChatListPage),
     // AutoRoute(page: ConvoPage),
-    // AutoRoute(page: ForumPage),
+    AutoRoute(page: ForumPage),
+    AutoRoute(page: MissingItemsPage),
     // AutoRoute(page: CommentPage),
   ],
 )

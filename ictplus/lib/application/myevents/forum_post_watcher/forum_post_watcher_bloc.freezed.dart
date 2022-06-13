@@ -28,12 +28,6 @@ class _$ForumPostWatcherEventTearOff {
       failureOrForumPost,
     );
   }
-
-  _PosterProfileRetrieved posterProfileRetrieved(ForumPost forum) {
-    return _PosterProfileRetrieved(
-      forum,
-    );
-  }
 }
 
 /// @nodoc
@@ -46,7 +40,6 @@ mixin _$ForumPostWatcherEvent {
     required TResult Function(String forumId) retrieveForumPostStarted,
     required TResult Function(Either<DataFailure, ForumPost> failureOrForumPost)
         forumPostReceived,
-    required TResult Function(ForumPost forum) posterProfileRetrieved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,7 +47,6 @@ mixin _$ForumPostWatcherEvent {
     TResult Function(String forumId)? retrieveForumPostStarted,
     TResult Function(Either<DataFailure, ForumPost> failureOrForumPost)?
         forumPostReceived,
-    TResult Function(ForumPost forum)? posterProfileRetrieved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -62,15 +54,12 @@ mixin _$ForumPostWatcherEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) retrieveForumPostStarted,
     required TResult Function(_ForumPostReceived value) forumPostReceived,
-    required TResult Function(_PosterProfileRetrieved value)
-        posterProfileRetrieved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? retrieveForumPostStarted,
     TResult Function(_ForumPostReceived value)? forumPostReceived,
-    TResult Function(_PosterProfileRetrieved value)? posterProfileRetrieved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -159,7 +148,6 @@ class _$_Started implements _Started {
     required TResult Function(String forumId) retrieveForumPostStarted,
     required TResult Function(Either<DataFailure, ForumPost> failureOrForumPost)
         forumPostReceived,
-    required TResult Function(ForumPost forum) posterProfileRetrieved,
   }) {
     return retrieveForumPostStarted(forumId);
   }
@@ -170,7 +158,6 @@ class _$_Started implements _Started {
     TResult Function(String forumId)? retrieveForumPostStarted,
     TResult Function(Either<DataFailure, ForumPost> failureOrForumPost)?
         forumPostReceived,
-    TResult Function(ForumPost forum)? posterProfileRetrieved,
     required TResult orElse(),
   }) {
     if (retrieveForumPostStarted != null) {
@@ -184,8 +171,6 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) retrieveForumPostStarted,
     required TResult Function(_ForumPostReceived value) forumPostReceived,
-    required TResult Function(_PosterProfileRetrieved value)
-        posterProfileRetrieved,
   }) {
     return retrieveForumPostStarted(this);
   }
@@ -195,7 +180,6 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? retrieveForumPostStarted,
     TResult Function(_ForumPostReceived value)? forumPostReceived,
-    TResult Function(_PosterProfileRetrieved value)? posterProfileRetrieved,
     required TResult orElse(),
   }) {
     if (retrieveForumPostStarted != null) {
@@ -284,7 +268,6 @@ class _$_ForumPostReceived implements _ForumPostReceived {
     required TResult Function(String forumId) retrieveForumPostStarted,
     required TResult Function(Either<DataFailure, ForumPost> failureOrForumPost)
         forumPostReceived,
-    required TResult Function(ForumPost forum) posterProfileRetrieved,
   }) {
     return forumPostReceived(failureOrForumPost);
   }
@@ -295,7 +278,6 @@ class _$_ForumPostReceived implements _ForumPostReceived {
     TResult Function(String forumId)? retrieveForumPostStarted,
     TResult Function(Either<DataFailure, ForumPost> failureOrForumPost)?
         forumPostReceived,
-    TResult Function(ForumPost forum)? posterProfileRetrieved,
     required TResult orElse(),
   }) {
     if (forumPostReceived != null) {
@@ -309,8 +291,6 @@ class _$_ForumPostReceived implements _ForumPostReceived {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) retrieveForumPostStarted,
     required TResult Function(_ForumPostReceived value) forumPostReceived,
-    required TResult Function(_PosterProfileRetrieved value)
-        posterProfileRetrieved,
   }) {
     return forumPostReceived(this);
   }
@@ -320,7 +300,6 @@ class _$_ForumPostReceived implements _ForumPostReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? retrieveForumPostStarted,
     TResult Function(_ForumPostReceived value)? forumPostReceived,
-    TResult Function(_PosterProfileRetrieved value)? posterProfileRetrieved,
     required TResult orElse(),
   }) {
     if (forumPostReceived != null) {
@@ -342,140 +321,6 @@ abstract class _ForumPostReceived implements ForumPostWatcherEvent {
 }
 
 /// @nodoc
-abstract class _$PosterProfileRetrievedCopyWith<$Res> {
-  factory _$PosterProfileRetrievedCopyWith(_PosterProfileRetrieved value,
-          $Res Function(_PosterProfileRetrieved) then) =
-      __$PosterProfileRetrievedCopyWithImpl<$Res>;
-  $Res call({ForumPost forum});
-
-  $ForumPostCopyWith<$Res> get forum;
-}
-
-/// @nodoc
-class __$PosterProfileRetrievedCopyWithImpl<$Res>
-    extends _$ForumPostWatcherEventCopyWithImpl<$Res>
-    implements _$PosterProfileRetrievedCopyWith<$Res> {
-  __$PosterProfileRetrievedCopyWithImpl(_PosterProfileRetrieved _value,
-      $Res Function(_PosterProfileRetrieved) _then)
-      : super(_value, (v) => _then(v as _PosterProfileRetrieved));
-
-  @override
-  _PosterProfileRetrieved get _value => super._value as _PosterProfileRetrieved;
-
-  @override
-  $Res call({
-    Object? forum = freezed,
-  }) {
-    return _then(_PosterProfileRetrieved(
-      forum == freezed
-          ? _value.forum
-          : forum // ignore: cast_nullable_to_non_nullable
-              as ForumPost,
-    ));
-  }
-
-  @override
-  $ForumPostCopyWith<$Res> get forum {
-    return $ForumPostCopyWith<$Res>(_value.forum, (value) {
-      return _then(_value.copyWith(forum: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$_PosterProfileRetrieved implements _PosterProfileRetrieved {
-  const _$_PosterProfileRetrieved(this.forum);
-
-  @override
-  final ForumPost forum;
-
-  @override
-  String toString() {
-    return 'ForumPostWatcherEvent.posterProfileRetrieved(forum: $forum)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _PosterProfileRetrieved &&
-            (identical(other.forum, forum) ||
-                const DeepCollectionEquality().equals(other.forum, forum)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(forum);
-
-  @JsonKey(ignore: true)
-  @override
-  _$PosterProfileRetrievedCopyWith<_PosterProfileRetrieved> get copyWith =>
-      __$PosterProfileRetrievedCopyWithImpl<_PosterProfileRetrieved>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String forumId) retrieveForumPostStarted,
-    required TResult Function(Either<DataFailure, ForumPost> failureOrForumPost)
-        forumPostReceived,
-    required TResult Function(ForumPost forum) posterProfileRetrieved,
-  }) {
-    return posterProfileRetrieved(forum);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String forumId)? retrieveForumPostStarted,
-    TResult Function(Either<DataFailure, ForumPost> failureOrForumPost)?
-        forumPostReceived,
-    TResult Function(ForumPost forum)? posterProfileRetrieved,
-    required TResult orElse(),
-  }) {
-    if (posterProfileRetrieved != null) {
-      return posterProfileRetrieved(forum);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) retrieveForumPostStarted,
-    required TResult Function(_ForumPostReceived value) forumPostReceived,
-    required TResult Function(_PosterProfileRetrieved value)
-        posterProfileRetrieved,
-  }) {
-    return posterProfileRetrieved(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? retrieveForumPostStarted,
-    TResult Function(_ForumPostReceived value)? forumPostReceived,
-    TResult Function(_PosterProfileRetrieved value)? posterProfileRetrieved,
-    required TResult orElse(),
-  }) {
-    if (posterProfileRetrieved != null) {
-      return posterProfileRetrieved(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PosterProfileRetrieved implements ForumPostWatcherEvent {
-  const factory _PosterProfileRetrieved(ForumPost forum) =
-      _$_PosterProfileRetrieved;
-
-  ForumPost get forum => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$PosterProfileRetrievedCopyWith<_PosterProfileRetrieved> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 class _$ForumPostWatcherStateTearOff {
   const _$ForumPostWatcherStateTearOff();
 
@@ -487,10 +332,9 @@ class _$ForumPostWatcherStateTearOff {
     return const _LoadInProgress();
   }
 
-  _LoadSuccess loadSuccess(ForumPost forum, Profile posterProfile) {
+  _LoadSuccess loadSuccess(ForumPost forum) {
     return _LoadSuccess(
       forum,
-      posterProfile,
     );
   }
 
@@ -510,8 +354,7 @@ mixin _$ForumPostWatcherState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(ForumPost forum, Profile posterProfile)
-        loadSuccess,
+    required TResult Function(ForumPost forum) loadSuccess,
     required TResult Function(DataFailure dataFailure) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -519,7 +362,7 @@ mixin _$ForumPostWatcherState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(ForumPost forum, Profile posterProfile)? loadSuccess,
+    TResult Function(ForumPost forum)? loadSuccess,
     TResult Function(DataFailure dataFailure)? loadFailure,
     required TResult orElse(),
   }) =>
@@ -600,8 +443,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(ForumPost forum, Profile posterProfile)
-        loadSuccess,
+    required TResult Function(ForumPost forum) loadSuccess,
     required TResult Function(DataFailure dataFailure) loadFailure,
   }) {
     return initial();
@@ -612,7 +454,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(ForumPost forum, Profile posterProfile)? loadSuccess,
+    TResult Function(ForumPost forum)? loadSuccess,
     TResult Function(DataFailure dataFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -695,8 +537,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(ForumPost forum, Profile posterProfile)
-        loadSuccess,
+    required TResult Function(ForumPost forum) loadSuccess,
     required TResult Function(DataFailure dataFailure) loadFailure,
   }) {
     return loadInProgress();
@@ -707,7 +548,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(ForumPost forum, Profile posterProfile)? loadSuccess,
+    TResult Function(ForumPost forum)? loadSuccess,
     TResult Function(DataFailure dataFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -753,10 +594,9 @@ abstract class _$LoadSuccessCopyWith<$Res> {
   factory _$LoadSuccessCopyWith(
           _LoadSuccess value, $Res Function(_LoadSuccess) then) =
       __$LoadSuccessCopyWithImpl<$Res>;
-  $Res call({ForumPost forum, Profile posterProfile});
+  $Res call({ForumPost forum});
 
   $ForumPostCopyWith<$Res> get forum;
-  $ProfileCopyWith<$Res> get posterProfile;
 }
 
 /// @nodoc
@@ -773,17 +613,12 @@ class __$LoadSuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? forum = freezed,
-    Object? posterProfile = freezed,
   }) {
     return _then(_LoadSuccess(
       forum == freezed
           ? _value.forum
           : forum // ignore: cast_nullable_to_non_nullable
               as ForumPost,
-      posterProfile == freezed
-          ? _value.posterProfile
-          : posterProfile // ignore: cast_nullable_to_non_nullable
-              as Profile,
     ));
   }
 
@@ -793,28 +628,19 @@ class __$LoadSuccessCopyWithImpl<$Res>
       return _then(_value.copyWith(forum: value));
     });
   }
-
-  @override
-  $ProfileCopyWith<$Res> get posterProfile {
-    return $ProfileCopyWith<$Res>(_value.posterProfile, (value) {
-      return _then(_value.copyWith(posterProfile: value));
-    });
-  }
 }
 
 /// @nodoc
 
 class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.forum, this.posterProfile);
+  const _$_LoadSuccess(this.forum);
 
   @override
   final ForumPost forum;
-  @override
-  final Profile posterProfile;
 
   @override
   String toString() {
-    return 'ForumPostWatcherState.loadSuccess(forum: $forum, posterProfile: $posterProfile)';
+    return 'ForumPostWatcherState.loadSuccess(forum: $forum)';
   }
 
   @override
@@ -822,17 +648,12 @@ class _$_LoadSuccess implements _LoadSuccess {
     return identical(this, other) ||
         (other is _LoadSuccess &&
             (identical(other.forum, forum) ||
-                const DeepCollectionEquality().equals(other.forum, forum)) &&
-            (identical(other.posterProfile, posterProfile) ||
-                const DeepCollectionEquality()
-                    .equals(other.posterProfile, posterProfile)));
+                const DeepCollectionEquality().equals(other.forum, forum)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(forum) ^
-      const DeepCollectionEquality().hash(posterProfile);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(forum);
 
   @JsonKey(ignore: true)
   @override
@@ -844,11 +665,10 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(ForumPost forum, Profile posterProfile)
-        loadSuccess,
+    required TResult Function(ForumPost forum) loadSuccess,
     required TResult Function(DataFailure dataFailure) loadFailure,
   }) {
-    return loadSuccess(forum, posterProfile);
+    return loadSuccess(forum);
   }
 
   @override
@@ -856,12 +676,12 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(ForumPost forum, Profile posterProfile)? loadSuccess,
+    TResult Function(ForumPost forum)? loadSuccess,
     TResult Function(DataFailure dataFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
-      return loadSuccess(forum, posterProfile);
+      return loadSuccess(forum);
     }
     return orElse();
   }
@@ -894,11 +714,9 @@ class _$_LoadSuccess implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements ForumPostWatcherState {
-  const factory _LoadSuccess(ForumPost forum, Profile posterProfile) =
-      _$_LoadSuccess;
+  const factory _LoadSuccess(ForumPost forum) = _$_LoadSuccess;
 
   ForumPost get forum => throw _privateConstructorUsedError;
-  Profile get posterProfile => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -981,8 +799,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(ForumPost forum, Profile posterProfile)
-        loadSuccess,
+    required TResult Function(ForumPost forum) loadSuccess,
     required TResult Function(DataFailure dataFailure) loadFailure,
   }) {
     return loadFailure(dataFailure);
@@ -993,7 +810,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(ForumPost forum, Profile posterProfile)? loadSuccess,
+    TResult Function(ForumPost forum)? loadSuccess,
     TResult Function(DataFailure dataFailure)? loadFailure,
     required TResult orElse(),
   }) {

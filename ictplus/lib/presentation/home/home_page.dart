@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:ictplus/injection.dart';
 import 'package:ictplus/presentation/core/app_bar.dart';
 import 'package:ictplus/presentation/core/nav_bar.dart';
 import 'package:ictplus/domain/core/constants.dart' as constants;
+import 'package:auto_route/auto_route.dart';
+import 'package:ictplus/presentation/routes/router.gr.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,11 +15,22 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: appBar(context: context, header: 'FriendliNUS'),
+      appBar: appBar(context: context, header: 'Home', showLogo: false),
       bottomNavigationBar: const NavigationBar(),
-      body: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-        Expanded(child: Text('hi')),
-      ]),
+      body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(":HARLO", style: TextStyle(color: Colors.white)),
+            ElevatedButton(
+              onPressed: () {
+                context.pushRoute(ForumRoute(
+                    forumId: '00379c10-f444-11eb-ab17-4f148afc8cae',
+                    pollAdded: false));
+              },
+              child: Text('boo', style: TextStyle(color: Colors.white)),
+            )
+          ]),
     );
   }
 }

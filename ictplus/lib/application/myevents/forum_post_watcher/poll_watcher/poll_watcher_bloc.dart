@@ -4,8 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ictplus/domain/data/data_failure.dart';
-import 'package:ictplus/domain/data/forum/i_forum_repository.dart';
-import 'package:ictplus/domain/data/forum/poll/poll.dart';
+import 'package:ictplus/domain/data/myevents/i_forum_repository.dart';
+import 'package:ictplus/domain/data/myevents/poll/poll.dart';
 import 'package:injectable/injectable.dart';
 
 part 'poll_watcher_event.dart';

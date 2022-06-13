@@ -14,23 +14,24 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => getIt<ProfileActorBloc>()
-            ..add(const ProfileActorEvent.loadingOwnProfile()),
-        ),
-      ],
-      child: Scaffold(
-        appBar: appBar(
-          context: context,
-          header: 'Profile',
-          canGoBack: canGoBack,
-          canSignOut: true,
-        ),
-        backgroundColor: Colors.black,
-        bottomNavigationBar: const NavigationBar(),
-        body: SingleChildScrollView(child: OwnProfile()),
-      ),
-    );
+        providers: [
+          BlocProvider(
+            create: (context) => getIt<ProfileActorBloc>()
+              ..add(const ProfileActorEvent.loadingOwnProfile()),
+          ),
+        ],
+        child: SafeArea(
+          child: Scaffold(
+            appBar: appBar(
+                context: context,
+                header: 'Profile',
+                canGoBack: canGoBack,
+                canSignOut: true,
+                showLogo: true),
+            backgroundColor: Colors.transparent,
+            bottomNavigationBar: const NavigationBar(),
+            body: SingleChildScrollView(child: OwnProfile()),
+          ),
+        ));
   }
 }

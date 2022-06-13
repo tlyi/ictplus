@@ -6,9 +6,11 @@
 
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i2;
-import 'package:ictplus/domain/data/profile/profile.dart' as _i12;
+import 'package:ictplus/domain/data/profile/profile.dart' as _i14;
 import 'package:ictplus/presentation/core/full_screen_photo.dart' as _i10;
 import 'package:ictplus/presentation/home/home_page.dart' as _i5;
+import 'package:ictplus/presentation/myevents/forum_page.dart' as _i12;
+import 'package:ictplus/presentation/myevents/missing_items_page.dart' as _i13;
 import 'package:ictplus/presentation/notifications/notification_page.dart'
     as _i9;
 import 'package:ictplus/presentation/profile/other_profile_page.dart' as _i8;
@@ -73,12 +75,25 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return _i11.SingPassPage();
+        }),
+    ForumRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<ForumRouteArgs>();
+          return _i12.ForumPage(
+              key: args.key, forumId: args.forumId, pollAdded: args.pollAdded);
+        }),
+    MissingItemsRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<MissingItemsRouteArgs>();
+          return _i13.MissingItemsPage(key: args.key, forumId: args.forumId);
         })
   };
 
   @override
   List<_i1.RouteConfig> get routes => [
-        _i1.RouteConfig(SplashRoute.name, path: '/splash-page'),
+        _i1.RouteConfig(SplashRoute.name, path: '/'),
         _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
         _i1.RouteConfig(HomeRoute.name, path: '/home-page'),
         _i1.RouteConfig(ResetPasswordRoute.name, path: '/reset-password-page'),
@@ -87,12 +102,14 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(NotificationRoute.name, path: '/notification-page'),
         _i1.RouteConfig(FullScreenPhotoRoute.name,
             path: '/full-screen-photo-page'),
-        _i1.RouteConfig(SingPassRoute.name, path: '/sing-pass-page')
+        _i1.RouteConfig(SingPassRoute.name, path: '/sing-pass-page'),
+        _i1.RouteConfig(ForumRoute.name, path: '/forum-page'),
+        _i1.RouteConfig(MissingItemsRoute.name, path: '/missing-items-page')
       ];
 }
 
 class SplashRoute extends _i1.PageRouteInfo {
-  const SplashRoute() : super(name, path: '/splash-page');
+  const SplashRoute() : super(name, path: '/');
 
   static const String name = 'SplashRoute';
 }
@@ -133,7 +150,7 @@ class ProfileRouteArgs {
 }
 
 class OtherProfileRoute extends _i1.PageRouteInfo<OtherProfileRouteArgs> {
-  OtherProfileRoute({_i2.Key? key, required _i12.Profile userProfile})
+  OtherProfileRoute({_i2.Key? key, required _i14.Profile userProfile})
       : super(name,
             path: '/other-profile-page',
             args: OtherProfileRouteArgs(key: key, userProfile: userProfile));
@@ -146,7 +163,7 @@ class OtherProfileRouteArgs {
 
   final _i2.Key? key;
 
-  final _i12.Profile userProfile;
+  final _i14.Profile userProfile;
 }
 
 class NotificationRoute extends _i1.PageRouteInfo {
@@ -181,4 +198,42 @@ class SingPassRoute extends _i1.PageRouteInfo {
   const SingPassRoute() : super(name, path: '/sing-pass-page');
 
   static const String name = 'SingPassRoute';
+}
+
+class ForumRoute extends _i1.PageRouteInfo<ForumRouteArgs> {
+  ForumRoute({_i2.Key? key, required String forumId, required bool pollAdded})
+      : super(name,
+            path: '/forum-page',
+            args: ForumRouteArgs(
+                key: key, forumId: forumId, pollAdded: pollAdded));
+
+  static const String name = 'ForumRoute';
+}
+
+class ForumRouteArgs {
+  const ForumRouteArgs(
+      {this.key, required this.forumId, required this.pollAdded});
+
+  final _i2.Key? key;
+
+  final String forumId;
+
+  final bool pollAdded;
+}
+
+class MissingItemsRoute extends _i1.PageRouteInfo<MissingItemsRouteArgs> {
+  MissingItemsRoute({_i2.Key? key, required String forumId})
+      : super(name,
+            path: '/missing-items-page',
+            args: MissingItemsRouteArgs(key: key, forumId: forumId));
+
+  static const String name = 'MissingItemsRoute';
+}
+
+class MissingItemsRouteArgs {
+  const MissingItemsRouteArgs({this.key, required this.forumId});
+
+  final _i2.Key? key;
+
+  final String forumId;
 }

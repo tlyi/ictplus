@@ -53,7 +53,9 @@ class SignInForm extends StatelessWidget {
                   _BuildLogInButton(),
                   _BuildForgotPassword(),
                   //   _BuildRegisterButton(),
-                  if (state.isSubmitting) const LinearProgressIndicator(),
+                  if (state.isSubmitting)
+                    const LinearProgressIndicator(
+                        color: constants.THEME_ORANGE),
                 ],
               ),
             ));

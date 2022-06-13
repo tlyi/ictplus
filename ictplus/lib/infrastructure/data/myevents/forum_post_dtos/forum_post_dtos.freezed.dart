@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'forum_post.dart';
+part of 'forum_post_dtos.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -12,11 +12,15 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-/// @nodoc
-class _$ForumPostTearOff {
-  const _$ForumPostTearOff();
+ForumPostDto _$ForumPostDtoFromJson(Map<String, dynamic> json) {
+  return _ForumPostDto.fromJson(json);
+}
 
-  _ForumPost call(
+/// @nodoc
+class _$ForumPostDtoTearOff {
+  const _$ForumPostDtoTearOff();
+
+  _ForumPostDto call(
       {required String title,
       required String eventId,
       required String end_date,
@@ -31,7 +35,7 @@ class _$ForumPostTearOff {
       required List<String> specialPack,
       required String photoUrl,
       required String status}) {
-    return _ForumPost(
+    return _ForumPostDto(
       title: title,
       eventId: eventId,
       end_date: end_date,
@@ -48,13 +52,17 @@ class _$ForumPostTearOff {
       status: status,
     );
   }
+
+  ForumPostDto fromJson(Map<String, Object> json) {
+    return ForumPostDto.fromJson(json);
+  }
 }
 
 /// @nodoc
-const $ForumPost = _$ForumPostTearOff();
+const $ForumPostDto = _$ForumPostDtoTearOff();
 
 /// @nodoc
-mixin _$ForumPost {
+mixin _$ForumPostDto {
   String get title => throw _privateConstructorUsedError;
   String get eventId => throw _privateConstructorUsedError;
   String get end_date => throw _privateConstructorUsedError;
@@ -70,15 +78,17 @@ mixin _$ForumPost {
   String get photoUrl => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ForumPostCopyWith<ForumPost> get copyWith =>
+  $ForumPostDtoCopyWith<ForumPostDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ForumPostCopyWith<$Res> {
-  factory $ForumPostCopyWith(ForumPost value, $Res Function(ForumPost) then) =
-      _$ForumPostCopyWithImpl<$Res>;
+abstract class $ForumPostDtoCopyWith<$Res> {
+  factory $ForumPostDtoCopyWith(
+          ForumPostDto value, $Res Function(ForumPostDto) then) =
+      _$ForumPostDtoCopyWithImpl<$Res>;
   $Res call(
       {String title,
       String eventId,
@@ -97,12 +107,12 @@ abstract class $ForumPostCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ForumPostCopyWithImpl<$Res> implements $ForumPostCopyWith<$Res> {
-  _$ForumPostCopyWithImpl(this._value, this._then);
+class _$ForumPostDtoCopyWithImpl<$Res> implements $ForumPostDtoCopyWith<$Res> {
+  _$ForumPostDtoCopyWithImpl(this._value, this._then);
 
-  final ForumPost _value;
+  final ForumPostDto _value;
   // ignore: unused_field
-  final $Res Function(ForumPost) _then;
+  final $Res Function(ForumPostDto) _then;
 
   @override
   $Res call({
@@ -183,10 +193,11 @@ class _$ForumPostCopyWithImpl<$Res> implements $ForumPostCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ForumPostCopyWith<$Res> implements $ForumPostCopyWith<$Res> {
-  factory _$ForumPostCopyWith(
-          _ForumPost value, $Res Function(_ForumPost) then) =
-      __$ForumPostCopyWithImpl<$Res>;
+abstract class _$ForumPostDtoCopyWith<$Res>
+    implements $ForumPostDtoCopyWith<$Res> {
+  factory _$ForumPostDtoCopyWith(
+          _ForumPostDto value, $Res Function(_ForumPostDto) then) =
+      __$ForumPostDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String title,
@@ -206,13 +217,14 @@ abstract class _$ForumPostCopyWith<$Res> implements $ForumPostCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ForumPostCopyWithImpl<$Res> extends _$ForumPostCopyWithImpl<$Res>
-    implements _$ForumPostCopyWith<$Res> {
-  __$ForumPostCopyWithImpl(_ForumPost _value, $Res Function(_ForumPost) _then)
-      : super(_value, (v) => _then(v as _ForumPost));
+class __$ForumPostDtoCopyWithImpl<$Res> extends _$ForumPostDtoCopyWithImpl<$Res>
+    implements _$ForumPostDtoCopyWith<$Res> {
+  __$ForumPostDtoCopyWithImpl(
+      _ForumPostDto _value, $Res Function(_ForumPostDto) _then)
+      : super(_value, (v) => _then(v as _ForumPostDto));
 
   @override
-  _ForumPost get _value => super._value as _ForumPost;
+  _ForumPostDto get _value => super._value as _ForumPostDto;
 
   @override
   $Res call({
@@ -231,7 +243,7 @@ class __$ForumPostCopyWithImpl<$Res> extends _$ForumPostCopyWithImpl<$Res>
     Object? photoUrl = freezed,
     Object? status = freezed,
   }) {
-    return _then(_ForumPost(
+    return _then(_ForumPostDto(
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -293,9 +305,9 @@ class __$ForumPostCopyWithImpl<$Res> extends _$ForumPostCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$_ForumPost extends _ForumPost {
-  const _$_ForumPost(
+@JsonSerializable()
+class _$_ForumPostDto extends _ForumPostDto {
+  const _$_ForumPostDto(
       {required this.title,
       required this.eventId,
       required this.end_date,
@@ -311,6 +323,9 @@ class _$_ForumPost extends _ForumPost {
       required this.photoUrl,
       required this.status})
       : super._();
+
+  factory _$_ForumPostDto.fromJson(Map<String, dynamic> json) =>
+      _$_$_ForumPostDtoFromJson(json);
 
   @override
   final String title;
@@ -343,13 +358,13 @@ class _$_ForumPost extends _ForumPost {
 
   @override
   String toString() {
-    return 'ForumPost(title: $title, eventId: $eventId, end_date: $end_date, start_date: $start_date, report_time: $report_time, location: $location, pack1: $pack1, pack2: $pack2, pack3: $pack3, pack4: $pack4, pack5: $pack5, specialPack: $specialPack, photoUrl: $photoUrl, status: $status)';
+    return 'ForumPostDto(title: $title, eventId: $eventId, end_date: $end_date, start_date: $start_date, report_time: $report_time, location: $location, pack1: $pack1, pack2: $pack2, pack3: $pack3, pack4: $pack4, pack5: $pack5, specialPack: $specialPack, photoUrl: $photoUrl, status: $status)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ForumPost &&
+        (other is _ForumPostDto &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.eventId, eventId) ||
@@ -407,12 +422,17 @@ class _$_ForumPost extends _ForumPost {
 
   @JsonKey(ignore: true)
   @override
-  _$ForumPostCopyWith<_ForumPost> get copyWith =>
-      __$ForumPostCopyWithImpl<_ForumPost>(this, _$identity);
+  _$ForumPostDtoCopyWith<_ForumPostDto> get copyWith =>
+      __$ForumPostDtoCopyWithImpl<_ForumPostDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_ForumPostDtoToJson(this);
+  }
 }
 
-abstract class _ForumPost extends ForumPost {
-  const factory _ForumPost(
+abstract class _ForumPostDto extends ForumPostDto {
+  const factory _ForumPostDto(
       {required String title,
       required String eventId,
       required String end_date,
@@ -426,8 +446,11 @@ abstract class _ForumPost extends ForumPost {
       required List<String> pack5,
       required List<String> specialPack,
       required String photoUrl,
-      required String status}) = _$_ForumPost;
-  const _ForumPost._() : super._();
+      required String status}) = _$_ForumPostDto;
+  const _ForumPostDto._() : super._();
+
+  factory _ForumPostDto.fromJson(Map<String, dynamic> json) =
+      _$_ForumPostDto.fromJson;
 
   @override
   String get title => throw _privateConstructorUsedError;
@@ -459,6 +482,6 @@ abstract class _ForumPost extends ForumPost {
   String get status => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ForumPostCopyWith<_ForumPost> get copyWith =>
+  _$ForumPostDtoCopyWith<_ForumPostDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
