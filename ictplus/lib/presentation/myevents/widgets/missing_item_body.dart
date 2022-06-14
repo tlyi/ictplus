@@ -17,9 +17,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:tap_debouncer/tap_debouncer.dart';
 import 'package:ictplus/presentation/core/app_bar.dart';
 
-class MissingItemBody extends StatelessWidget {
+class MissingItemBody extends StatefulWidget {
   const MissingItemBody({Key? key}) : super(key: key);
 
+  @override
+  _MissingItemBodyState createState() => _MissingItemBodyState();
+}
+
+class _MissingItemBodyState extends State<MissingItemBody> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ForumPostWatcherBloc, ForumPostWatcherState>(
@@ -58,7 +63,7 @@ class MissingItemBody extends StatelessWidget {
                     physics: const ScrollPhysics(),
                     child: Column(
                       children: <Widget>[
-                        _BuildPost(forum: forum, userId: ownId),
+                        BuildPost(forum: forum, userId: ownId),
                       ],
                     ),
                   ));
@@ -73,13 +78,19 @@ class MissingItemBody extends StatelessWidget {
   }
 }
 
-class _BuildPost extends StatelessWidget {
+class BuildPost extends StatefulWidget {
   final ForumPost forum;
   final String userId;
+  const BuildPost({Key? key, required this.forum, required this.userId})
+      : super(key: key);
+
+  @override
+  _BuildPost createState() => _BuildPost();
+}
+
+class _BuildPost extends State<BuildPost> {
   final String RESTRICTED_TEXT =
       "The restricted equipments will be submitted to RQ for purchase. Non-restricted items please head to emart and get it after submitting this list.";
-  const _BuildPost({Key? key, required this.forum, required this.userId})
-      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -101,13 +112,13 @@ class _BuildPost extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(forum.title,
+                        Text(widget.forum.title,
                             style: const TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.w600,
                                 fontSize: 50,
                                 color: constants.THEME_GREEN)),
-                        Text(forum.status,
+                        Text(widget.forum.status,
                             style: const TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.w400,
@@ -115,7 +126,8 @@ class _BuildPost extends StatelessWidget {
                                 color: constants.THEME_ORANGE))
                       ],
                     ),
-                    Text(forum.start_date + ' - ' + forum.end_date,
+                    Text(
+                        widget.forum.start_date + ' - ' + widget.forum.end_date,
                         style: const TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.w600,
@@ -154,17 +166,18 @@ class _BuildPost extends StatelessWidget {
                                 size: 17.0,
                               )
                             ])),
-                    _BuildList(title: 'Pack 1', list: forum.pack1),
-                    _BuildList(title: 'Pack 2', list: forum.pack2),
-                    _BuildList(title: 'Pack 3', list: forum.pack3),
-                    _BuildList(title: 'Pack 4', list: forum.pack4),
-                    _BuildList(title: 'Pack 5', list: forum.pack5),
-                    _BuildList(title: 'Pack 6', list: forum.pack6),
-                    _BuildList(title: 'Pack 7', list: forum.pack7),
-                    _BuildList(title: 'Pack 8', list: forum.pack8),
-                    _BuildList(title: 'Pack 9', list: forum.pack9),
-                    _BuildList(
-                        title: 'Separate Items', list: forum.specialPack),
+                    BuildList(title: 'Pack 1', list: widget.forum.pack1),
+                    BuildList(title: 'Pack 2', list: widget.forum.pack2),
+                    BuildList(title: 'Pack 3', list: widget.forum.pack3),
+                    BuildList(title: 'Pack 4', list: widget.forum.pack4),
+                    BuildList(title: 'Pack 5', list: widget.forum.pack5),
+                    BuildList(title: 'Pack 6', list: widget.forum.pack6),
+                    BuildList(title: 'Pack 7', list: widget.forum.pack7),
+                    BuildList(title: 'Pack 8', list: widget.forum.pack8),
+                    BuildList(title: 'Pack 9', list: widget.forum.pack9),
+                    BuildList(
+                        title: 'Separate Items',
+                        list: widget.forum.specialPack),
                     const SizedBox(height: 20),
                     SizedBox(
                       width: MediaQuery.of(context).size.width,
@@ -197,18 +210,48 @@ class _BuildPost extends StatelessWidget {
   }
 }
 
-class _BuildList extends StatelessWidget {
+class BuildList extends StatefulWidget {
   final String title;
   final List<String> list;
 
-  const _BuildList({
+  BuildList({
     Key? key,
     required this.title,
     required this.list,
   }) : super(key: key);
 
   @override
+  _BuildList createState() => _BuildList();
+}
+
+class _BuildList extends State<BuildList> {
+  // late final List<CheckModel> _items;
+  late final List<bool> _isChecked;
+
+  @override
+  void initState() {
+    super.initState();
+    _isChecked = List<bool>.filled(widget.list.length, false);
+    // _items = List<CheckModel>.filled(widget.list.length, CheckModel("", false));
+    // for (int i = 0; i < widget.list.length; i++) {
+    //   _items[i] = CheckModel(widget.list[i], false);
+    // }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      if (states.any(interactiveStates.contains)) {
+        return constants.THEME_TRANSLUCENT_GRAY;
+      }
+      return Colors.white;
+    }
+
     return Padding(
         padding: EdgeInsets.symmetric(vertical: 5),
         child: Column(
@@ -217,7 +260,7 @@ class _BuildList extends StatelessWidget {
             children: [
               Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5),
-                  child: Text(title,
+                  child: Text(widget.title,
                       style: const TextStyle(
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w600,
@@ -226,10 +269,10 @@ class _BuildList extends StatelessWidget {
               ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: list.length,
+                  itemCount: widget.list.length,
                   itemBuilder: (context, index) {
-                    final String item = list[index];
-                    return title == 'Separate Items'
+                    final String item = widget.list[index];
+                    return widget.title == 'Separate Items'
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -243,10 +286,21 @@ class _BuildList extends StatelessWidget {
                                               fontWeight: FontWeight.w600,
                                               fontSize: 13,
                                               color: Colors.white)))),
-                              const Icon(
-                                Icons.check_box_outline_blank,
-                                color: Colors.white,
-                                size: 15.0,
+                              Checkbox(
+                                checkColor: Colors.white,
+                                shape: CircleBorder(),
+                                fillColor:
+                                    MaterialStateProperty.resolveWith(getColor),
+                                value: _isChecked[index],
+                                visualDensity: VisualDensity(
+                                    horizontal: -4.0, vertical: -4.0),
+                                onChanged: (bool? newValue) {
+                                  setState(
+                                    () {
+                                      _isChecked[index] = newValue!;
+                                    },
+                                  );
+                                },
                               )
                             ],
                           )
@@ -273,10 +327,22 @@ class _BuildList extends StatelessWidget {
                                                   fontWeight: FontWeight.w600,
                                                   fontSize: 13,
                                                   color: Colors.white)))),
-                                  const Icon(
-                                    Icons.check_box_outline_blank,
-                                    color: Colors.white,
-                                    size: 15.0,
+                                  Checkbox(
+                                    checkColor: Colors.white,
+                                    shape: CircleBorder(),
+                                    fillColor:
+                                        MaterialStateProperty.resolveWith(
+                                            getColor),
+                                    value: _isChecked[index],
+                                    visualDensity: VisualDensity(
+                                        horizontal: -4.0, vertical: -4.0),
+                                    onChanged: (bool? newValue) {
+                                      setState(
+                                        () {
+                                          _isChecked[index] = newValue!;
+                                        },
+                                      );
+                                    },
                                   )
                                 ],
                               );
