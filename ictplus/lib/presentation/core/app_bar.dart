@@ -39,7 +39,7 @@ AppBar appBar({
         ? Image(image: AssetImage('images/ict_white_logo.png'), height: 50)
         : isHome
             ? Padding(
-                padding: const EdgeInsets.only(left: 15),
+                padding: const EdgeInsets.only(left: 30),
                 child: Image(
                     image: AssetImage('images/ict_white_logo.png'), height: 50),
               )

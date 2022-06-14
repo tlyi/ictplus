@@ -23,10 +23,9 @@ class NavigationBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           IconButton(
-            icon: const Image(
-              image: AssetImage('images/ict_black_logo.png'),
-              color: Colors.white,
-            ),
+            icon: const Icon(
+              Icons.home_outlined, size: 35,
+            ), color: Colors.white,
             tooltip: 'Home',
             onPressed: () {
               context.replaceRoute(const HomeRoute());

@@ -36,7 +36,6 @@ class ProfileElements extends StatelessWidget {
           padding: const EdgeInsets.only(
             left: 30,
             right: 30,
-            bottom: 50,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,7 +109,7 @@ class ProfileElements extends StatelessWidget {
                         )),
                   ),
                 ),
-              SizedBox(height: 150),
+              if (!canUpdate) SizedBox(height: 150),
               if (!canUpdate)
                 BlocConsumer<AuthBloc, AuthState>(listener: (context, state) {
                   state.maybeMap(
