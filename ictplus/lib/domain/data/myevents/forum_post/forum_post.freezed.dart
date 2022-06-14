@@ -28,6 +28,10 @@ class _$ForumPostTearOff {
       required List<String> pack3,
       required List<String> pack4,
       required List<String> pack5,
+      required List<String> pack6,
+      required List<String> pack7,
+      required List<String> pack8,
+      required List<String> pack9,
       required List<String> specialPack,
       required String photoUrl,
       required String status}) {
@@ -43,6 +47,10 @@ class _$ForumPostTearOff {
       pack3: pack3,
       pack4: pack4,
       pack5: pack5,
+      pack6: pack6,
+      pack7: pack7,
+      pack8: pack8,
+      pack9: pack9,
       specialPack: specialPack,
       photoUrl: photoUrl,
       status: status,
@@ -66,6 +74,10 @@ mixin _$ForumPost {
   List<String> get pack3 => throw _privateConstructorUsedError;
   List<String> get pack4 => throw _privateConstructorUsedError;
   List<String> get pack5 => throw _privateConstructorUsedError;
+  List<String> get pack6 => throw _privateConstructorUsedError;
+  List<String> get pack7 => throw _privateConstructorUsedError;
+  List<String> get pack8 => throw _privateConstructorUsedError;
+  List<String> get pack9 => throw _privateConstructorUsedError;
   List<String> get specialPack => throw _privateConstructorUsedError;
   String get photoUrl => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
@@ -91,6 +103,10 @@ abstract class $ForumPostCopyWith<$Res> {
       List<String> pack3,
       List<String> pack4,
       List<String> pack5,
+      List<String> pack6,
+      List<String> pack7,
+      List<String> pack8,
+      List<String> pack9,
       List<String> specialPack,
       String photoUrl,
       String status});
@@ -117,6 +133,10 @@ class _$ForumPostCopyWithImpl<$Res> implements $ForumPostCopyWith<$Res> {
     Object? pack3 = freezed,
     Object? pack4 = freezed,
     Object? pack5 = freezed,
+    Object? pack6 = freezed,
+    Object? pack7 = freezed,
+    Object? pack8 = freezed,
+    Object? pack9 = freezed,
     Object? specialPack = freezed,
     Object? photoUrl = freezed,
     Object? status = freezed,
@@ -166,6 +186,22 @@ class _$ForumPostCopyWithImpl<$Res> implements $ForumPostCopyWith<$Res> {
           ? _value.pack5
           : pack5 // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      pack6: pack6 == freezed
+          ? _value.pack6
+          : pack6 // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pack7: pack7 == freezed
+          ? _value.pack7
+          : pack7 // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pack8: pack8 == freezed
+          ? _value.pack8
+          : pack8 // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pack9: pack9 == freezed
+          ? _value.pack9
+          : pack9 // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       specialPack: specialPack == freezed
           ? _value.specialPack
           : specialPack // ignore: cast_nullable_to_non_nullable
@@ -200,6 +236,10 @@ abstract class _$ForumPostCopyWith<$Res> implements $ForumPostCopyWith<$Res> {
       List<String> pack3,
       List<String> pack4,
       List<String> pack5,
+      List<String> pack6,
+      List<String> pack7,
+      List<String> pack8,
+      List<String> pack9,
       List<String> specialPack,
       String photoUrl,
       String status});
@@ -227,6 +267,10 @@ class __$ForumPostCopyWithImpl<$Res> extends _$ForumPostCopyWithImpl<$Res>
     Object? pack3 = freezed,
     Object? pack4 = freezed,
     Object? pack5 = freezed,
+    Object? pack6 = freezed,
+    Object? pack7 = freezed,
+    Object? pack8 = freezed,
+    Object? pack9 = freezed,
     Object? specialPack = freezed,
     Object? photoUrl = freezed,
     Object? status = freezed,
@@ -276,6 +320,22 @@ class __$ForumPostCopyWithImpl<$Res> extends _$ForumPostCopyWithImpl<$Res>
           ? _value.pack5
           : pack5 // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      pack6: pack6 == freezed
+          ? _value.pack6
+          : pack6 // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pack7: pack7 == freezed
+          ? _value.pack7
+          : pack7 // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pack8: pack8 == freezed
+          ? _value.pack8
+          : pack8 // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pack9: pack9 == freezed
+          ? _value.pack9
+          : pack9 // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       specialPack: specialPack == freezed
           ? _value.specialPack
           : specialPack // ignore: cast_nullable_to_non_nullable
@@ -307,6 +367,10 @@ class _$_ForumPost extends _ForumPost {
       required this.pack3,
       required this.pack4,
       required this.pack5,
+      required this.pack6,
+      required this.pack7,
+      required this.pack8,
+      required this.pack9,
       required this.specialPack,
       required this.photoUrl,
       required this.status})
@@ -335,6 +399,14 @@ class _$_ForumPost extends _ForumPost {
   @override
   final List<String> pack5;
   @override
+  final List<String> pack6;
+  @override
+  final List<String> pack7;
+  @override
+  final List<String> pack8;
+  @override
+  final List<String> pack9;
+  @override
   final List<String> specialPack;
   @override
   final String photoUrl;
@@ -343,7 +415,7 @@ class _$_ForumPost extends _ForumPost {
 
   @override
   String toString() {
-    return 'ForumPost(title: $title, eventId: $eventId, end_date: $end_date, start_date: $start_date, report_time: $report_time, location: $location, pack1: $pack1, pack2: $pack2, pack3: $pack3, pack4: $pack4, pack5: $pack5, specialPack: $specialPack, photoUrl: $photoUrl, status: $status)';
+    return 'ForumPost(title: $title, eventId: $eventId, end_date: $end_date, start_date: $start_date, report_time: $report_time, location: $location, pack1: $pack1, pack2: $pack2, pack3: $pack3, pack4: $pack4, pack5: $pack5, pack6: $pack6, pack7: $pack7, pack8: $pack8, pack9: $pack9, specialPack: $specialPack, photoUrl: $photoUrl, status: $status)';
   }
 
   @override
@@ -377,6 +449,14 @@ class _$_ForumPost extends _ForumPost {
                 const DeepCollectionEquality().equals(other.pack4, pack4)) &&
             (identical(other.pack5, pack5) ||
                 const DeepCollectionEquality().equals(other.pack5, pack5)) &&
+            (identical(other.pack6, pack6) ||
+                const DeepCollectionEquality().equals(other.pack6, pack6)) &&
+            (identical(other.pack7, pack7) ||
+                const DeepCollectionEquality().equals(other.pack7, pack7)) &&
+            (identical(other.pack8, pack8) ||
+                const DeepCollectionEquality().equals(other.pack8, pack8)) &&
+            (identical(other.pack9, pack9) ||
+                const DeepCollectionEquality().equals(other.pack9, pack9)) &&
             (identical(other.specialPack, specialPack) ||
                 const DeepCollectionEquality()
                     .equals(other.specialPack, specialPack)) &&
@@ -401,6 +481,10 @@ class _$_ForumPost extends _ForumPost {
       const DeepCollectionEquality().hash(pack3) ^
       const DeepCollectionEquality().hash(pack4) ^
       const DeepCollectionEquality().hash(pack5) ^
+      const DeepCollectionEquality().hash(pack6) ^
+      const DeepCollectionEquality().hash(pack7) ^
+      const DeepCollectionEquality().hash(pack8) ^
+      const DeepCollectionEquality().hash(pack9) ^
       const DeepCollectionEquality().hash(specialPack) ^
       const DeepCollectionEquality().hash(photoUrl) ^
       const DeepCollectionEquality().hash(status);
@@ -424,6 +508,10 @@ abstract class _ForumPost extends ForumPost {
       required List<String> pack3,
       required List<String> pack4,
       required List<String> pack5,
+      required List<String> pack6,
+      required List<String> pack7,
+      required List<String> pack8,
+      required List<String> pack9,
       required List<String> specialPack,
       required String photoUrl,
       required String status}) = _$_ForumPost;
@@ -451,6 +539,14 @@ abstract class _ForumPost extends ForumPost {
   List<String> get pack4 => throw _privateConstructorUsedError;
   @override
   List<String> get pack5 => throw _privateConstructorUsedError;
+  @override
+  List<String> get pack6 => throw _privateConstructorUsedError;
+  @override
+  List<String> get pack7 => throw _privateConstructorUsedError;
+  @override
+  List<String> get pack8 => throw _privateConstructorUsedError;
+  @override
+  List<String> get pack9 => throw _privateConstructorUsedError;
   @override
   List<String> get specialPack => throw _privateConstructorUsedError;
   @override
