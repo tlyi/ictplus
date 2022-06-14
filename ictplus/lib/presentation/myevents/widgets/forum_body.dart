@@ -186,6 +186,10 @@ class _BuildPost extends StatelessWidget {
                   _BuildList(title: 'Pack 3', list: forum.pack3),
                   _BuildList(title: 'Pack 4', list: forum.pack4),
                   _BuildList(title: 'Pack 5', list: forum.pack5),
+                  _BuildList(title: 'Pack 6', list: forum.pack6),
+                  _BuildList(title: 'Pack 7', list: forum.pack7),
+                  _BuildList(title: 'Pack 8', list: forum.pack8),
+                  _BuildList(title: 'Pack 9', list: forum.pack9),
                   _BuildList(title: 'Separate Items', list: forum.specialPack),
                   const SizedBox(height: 20),
                   SizedBox(

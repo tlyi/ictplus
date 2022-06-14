@@ -21,6 +21,8 @@ const Color THEME_NOTIF_BG = Color(0xFFE44444);
 
 const Color THEME_ORANGE = Color(0xFFFF7748);
 
+const Color THEME_TRANSLUCENT_ORANGE = Color(0x66FF7748);
+
 const Color THEME_TRANSLUCENT_GRAY = Color(0x2DFAFAFA);
 
 const Color THEME_GREEN = Color(0xFF81CF02);
