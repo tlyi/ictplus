@@ -54,66 +54,68 @@ class HomePage extends StatelessWidget {
           showLogo: true,
         ),
         bottomNavigationBar: const NavigationBar(),
-        body: SingleChildScrollView(
-          physics: ScrollPhysics(),
-          child: Container(
-            alignment: Alignment.center,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                OwnProfile(),
-                Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: 50,
-                      vertical: 20,
-                    ),
-                    padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                    height: 30,
-                    width: MediaQuery.of(context).size.width,
-                    alignment: Alignment.centerLeft,
-                    decoration: const BoxDecoration(
-                        color: constants.THEME_TRANSLUCENT_ORANGE,
-                        borderRadius: BorderRadius.all(Radius.circular(13.0))),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            child: const Text(
-                              'Search an item',
-                              style: TextStyle(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w400,
-                                fontSize: 13,
-                                color: Color(0x66FFFFFF),
-                              ),
+        body: Container(
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              OwnProfile(),
+              Container(
+                  margin: EdgeInsets.symmetric(
+                    horizontal: 50,
+                    vertical: 20,
+                  ),
+                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
+                  height: 30,
+                  width: MediaQuery.of(context).size.width,
+                  alignment: Alignment.centerLeft,
+                  decoration: const BoxDecoration(
+                      color: constants.THEME_TRANSLUCENT_ORANGE,
+                      borderRadius: BorderRadius.all(Radius.circular(13.0))),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: const Text(
+                            'Search an item',
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w400,
+                              fontSize: 13,
+                              color: Color(0x66FFFFFF),
                             ),
                           ),
-                          const Icon(
-                            Icons.search,
-                            color: Color(0x66FFFFFF),
-                            size: 17.0,
-                          )
-                        ])),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-                      child: Text(
-                        'myEvents',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontFamily: 'Montserrat',
                         ),
+                        const Icon(
+                          Icons.search,
+                          color: Color(0x66FFFFFF),
+                          size: 17.0,
+                        )
+                      ])),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+                    child: Text(
+                      'myEvents',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontFamily: 'Montserrat',
                       ),
                     ),
-                    Container(),
-                    Container(),
-                  ],
-                ),
-                Column(
+                  ),
+                  Container(),
+                  Container(),
+                ],
+              ),
+              Expanded(
+                  child: SingleChildScrollView(
+                physics: const ScrollPhysics(),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     EventCard(
                       isUpcoming: true,
@@ -142,8 +144,8 @@ class HomePage extends StatelessWidget {
                         callback: () {}),
                   ],
                 ),
-              ],
-            ),
+              ))
+            ],
           ),
         ),
       ),
