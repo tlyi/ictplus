@@ -34,48 +34,59 @@ AppBar appBar({
                 },
               )
             : canSignOut
-                ? BlocConsumer<AuthBloc, AuthState>(listener: (context, state) {
-                    state.maybeMap(
-                      unauthenticated: (_) =>
-                          context.replaceRoute(const SignInRoute()),
-                      orElse: () {},
-                    );
-                  }, builder: (context, state) {
-                    return IconButton(
-                      icon: const Icon(Icons.logout, color: Colors.grey),
-                      onPressed: () {
-                        showDialog(
+                ? BlocConsumer<AuthBloc, AuthState>(
+                    listener: (context, state) {
+                      state.maybeMap(
+                        unauthenticated: (_) =>
+                            context.replaceRoute(const SignInRoute()),
+                        orElse: () {},
+                      );
+                    },
+                    builder: (context, state) {
+                      return IconButton(
+                        icon: const Icon(Icons.logout, color: Colors.grey),
+                        onPressed: () {
+                          showDialog(
                             context: context,
                             builder: (BuildContext innerContext) => AlertDialog(
-                                  title: const Text('Sign Out?'),
-                                  content: const Text(
-                                      'Press OK to confirm sign out.'),
-                                  actions: <Widget>[
-                                    TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(innerContext),
-                                        child: const Text('Cancel')),
-                                    TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(innerContext);
-                                          context
-                                              .read<AuthBloc>()
-                                              .add(const AuthEvent.signedOut());
-                                        },
-                                        child: const Text('OK'))
-                                  ],
-                                ));
-                      },
-                    );
-                  })
+                              title: const Text('Sign Out?'),
+                              content:
+                                  const Text('Press OK to confirm sign out.'),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () => Navigator.pop(innerContext),
+                                  child: const Text('Cancel'),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(innerContext);
+                                    context.read<AuthBloc>().add(
+                                          const AuthEvent.signedOut(),
+                                        );
+                                  },
+                                  child: const Text('OK'),
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  )
                 : Container(),
     title: showLogo == true
-        ? Image(image: AssetImage('images/ict_white_logo.png'), height: 50)
-        : Text(header,
+        ? const Image(
+              image: AssetImage('images/ict_white_logo.png'),
+              height: 30,
+              alignment: Alignment.centerLeft,
+            )
+        : Text(
+            header,
             style: TextStyle(
               color: Colors.white,
               fontSize: fontSize,
-            )),
+            ),
+          ),
     backgroundColor: Colors.black,
     centerTitle: true,
     actions: [
