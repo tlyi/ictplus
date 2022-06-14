@@ -34,12 +34,14 @@ AppBar appBar({
                   context.popRoute();
                 },
               )
-            : null,
+            : isHome
+                ? null
+                : null,
     title: showLogo == true
         ? Image(image: AssetImage('images/ict_white_logo.png'), height: 50)
         : isHome
             ? Padding(
-                padding: const EdgeInsets.only(left: 30),
+                padding: const EdgeInsets.only(left: 25),
                 child: Image(
                     image: AssetImage('images/ict_white_logo.png'), height: 50),
               )

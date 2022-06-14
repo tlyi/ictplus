@@ -11,7 +11,7 @@ int generateRandomNumber() {
 }
 
 const String LOGO =
-    'https://firebasestorage.googleapis.com/v0/b/friendlinus.appspot.com/o/profilePictures%2Fdefault%2Flogo.png?alt=media&token=6513b2d4-2988-407c-9a89-0370798b806a';
+    'https://firebasestorage.googleapis.com/v0/b/ictplus-8632f.appspot.com/o/ict_black_logo.png?alt=media&token=b4a4d4e9-7f06-4151-aa20-cf49b7663caa';
 
 const Color THEME_BLUE = Color(0xFF7BA5BB);
 

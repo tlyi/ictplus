@@ -220,44 +220,46 @@ class ProfileHeader extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 30),
-        Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                userProfile.rank,
-                style: const TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontSize: 15,
-                  fontWeight: FontWeight.w300,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    userProfile.fullName,
-                    style: const TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white),
+        Expanded(
+          child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  userProfile.rank,
+                  style: const TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontSize: 15,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.white,
                   ),
-                  if (canUpdate)
-                    Padding(
-                      padding: const EdgeInsets.only(left: 60.0),
-                      child: GestureDetector(
+                ),
+                const SizedBox(height: 5),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        userProfile.fullName,
+                        style: const TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white),
+                      ),
+                    ),
+                    if (canUpdate)
+                      GestureDetector(
                           child:
                               Icon(Icons.edit, color: Colors.white, size: 20),
                           onTap: () {
                             context.pushRoute(ProfileRoute(canGoBack: true));
                           }),
-                    ),
-                ],
-              ),
-            ]),
+                  ],
+                ),
+              ]),
+        ),
         const SizedBox(height: 10),
       ],
     );

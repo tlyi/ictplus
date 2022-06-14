@@ -40,7 +40,6 @@ class HomePage extends StatelessWidget {
       appBar: appBar(
         context: context,
         header: 'ICT+',
-        showLogo: true,
         isHome: true,
       ),
       body: Container(
