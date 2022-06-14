@@ -5,8 +5,6 @@ import 'package:ictplus/domain/data/profile/profile.dart';
 
 abstract class INotificationRepository {
   Future<String> getOwnId();
-  Stream<Either<DataFailure, int>> retrieveNumberUnreadChats(
-      {required String userId});
   Stream<Either<DataFailure, int>> retrieveNumberUnreadNotifications(
       {required String userId});
   Stream<Either<DataFailure, List<Notification>>> retrieveNotificationsInitial(

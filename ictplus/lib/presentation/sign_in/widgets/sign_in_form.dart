@@ -46,15 +46,31 @@ class SignInForm extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   _BuildSingPassButton(),
-                  const SizedBox(height: 50),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 30.0),
+                    child: Row(
+                      children: [
+                        Expanded(child: Divider(color: Colors.white)),
+                        Text('Or Sign In With',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 13,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w400,
+                            )),
+                        Expanded(child: Divider(color: Colors.white)),
+                      ],
+                    ),
+                  ),
                   _BuildIC(),
                   const SizedBox(height: 20),
                   _BuildPassword(),
-                  _BuildLogInButton(),
                   _BuildForgotPassword(),
-                  //   _BuildRegisterButton(),
+                  _BuildLogInButton(),
+                  SizedBox(height: 10),
                   if (state.isSubmitting)
                     const LinearProgressIndicator(
+                        backgroundColor: Colors.white,
                         color: constants.THEME_ORANGE),
                 ],
               ),
@@ -148,7 +164,7 @@ class _BuildLogInButton extends StatelessWidget {
     return BlocBuilder<SignInFormBloc, SignInFormState>(
       builder: (context, state) {
         return Container(
-          margin: const EdgeInsets.only(top: 20.0),
+          margin: const EdgeInsets.only(top: 10.0),
           width: MediaQuery.of(context).size.width * 0.5,
           child: ElevatedButton(
               style: ButtonStyle(
@@ -163,7 +179,8 @@ class _BuildLogInButton extends StatelessWidget {
                       const SignInFormEvent.signInWithEmailAndPasswordPressed(),
                     );
               },
-              child: const Text("Sign In")),
+              child: const Text("Sign In",
+                  style: TextStyle(fontFamily: 'Montserrat'))),
         );
       },
     );
@@ -179,10 +196,14 @@ class _BuildForgotPassword extends StatelessWidget {
           margin: const EdgeInsets.only(top: 10.0),
           child: TextButton(
               onPressed: () {
-                context.pushRoute(const ResetPasswordRoute());
+                context.pushRoute(const SingPassRoute());
               },
-              child: Text('Forgot Password',
-                  style: TextStyle(color: Colors.grey[700]))),
+              child: Text('Forgot Password?',
+                  style: TextStyle(
+                      color: Colors.grey[700],
+                      fontSize: 13,
+                      fontFamily: 'Montserrat',
+                      fontStyle: FontStyle.italic))),
         );
       },
     );
@@ -229,7 +250,8 @@ class _BuildSingPassButton extends StatelessWidget {
               onPressed: () {
                 context.pushRoute(const SingPassRoute());
               },
-              child: const Text("Continue with Singpass")),
+              child: const Text("Continue with Singpass",
+                  style: TextStyle(fontFamily: 'Montserrat'))),
         );
       },
     );

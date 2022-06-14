@@ -105,6 +105,9 @@ flutter:
     - family: Montserrat
       fonts:
         - asset: fonts/Montserrat-VariableFont_wght.ttf
+          weight: 200
+        - asset: fonts/Montserrat-Medium.ttf
+          weight: 400
         - asset: fonts/Montserrat-Italic-VariableFont_wght.ttf
           style: italic
         - asset: fonts/Montserrat-SemiBold.ttf

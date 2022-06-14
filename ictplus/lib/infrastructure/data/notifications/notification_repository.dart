@@ -22,26 +22,6 @@ class NotificationRepository implements INotificationRepository {
   }
 
   @override
-  Stream<Either<DataFailure, int>> retrieveNumberUnreadChats(
-      {required String userId}) async* {
-    final chatsRef = await _firestore.chatsRef();
-    yield* chatsRef
-        .where('userIds', arrayContains: userId)
-        .where('lastSenderId', isNotEqualTo: userId)
-        .where('lastMessageRead', isEqualTo: false)
-        .snapshots()
-        .map((docSnapshot) => right<DataFailure, int>(docSnapshot.docs.length))
-        .handleError((e) {
-      if (e is FirebaseException && e.message!.contains('PERMISSION_DENIED')) {
-        return left(const DataFailure.insufficientPermission());
-      } else {
-        print(e);
-        return left(const DataFailure.unexpected());
-      }
-    });
-  }
-
-  @override
   Stream<Either<DataFailure, int>> retrieveNumberUnreadNotifications(
       {required String userId}) async* {
     final notificationsRef = await _firestore.notificationsUserRef(userId);

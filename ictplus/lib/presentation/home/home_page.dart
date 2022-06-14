@@ -6,6 +6,8 @@ import 'package:ictplus/presentation/core/app_bar.dart';
 import 'package:ictplus/presentation/core/nav_bar.dart';
 import 'package:ictplus/domain/core/constants.dart' as constants;
 import 'package:auto_route/auto_route.dart';
+import 'package:ictplus/presentation/profile/profile_header_page.dart';
+import 'package:ictplus/presentation/profile/widgets/profile_elements.dart';
 import 'package:ictplus/presentation/routes/router.gr.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,13 +17,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: appBar(context: context, header: 'Home', showLogo: false),
-      bottomNavigationBar: const NavigationBar(),
+      appBar: appBar(context: context, header: 'Home', isHome: true),
+      //bottomNavigationBar: const NavigationBar(),
       body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Text(":HARLO", style: TextStyle(color: Colors.white)),
+            ProfileHeaderPage(canGoBack: false, canUpdate: true),
             ElevatedButton(
               onPressed: () {
                 context.pushRoute(ForumRoute(

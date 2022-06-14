@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ictplus/application/auth/auth_bloc.dart';
-import 'package:ictplus/application/notifications/chat_counter_watcher/chat_counter_watcher_bloc.dart';
 import 'package:ictplus/application/notifications/notif_counter_watcher/notif_counter_watcher_bloc.dart';
 import 'package:ictplus/injection.dart';
 import 'package:ictplus/presentation/routes/router.gr.dart';
@@ -13,7 +12,6 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: [
-          BlocProvider(create: (context) => getIt<ChatCounterWatcherBloc>()),
           BlocProvider(create: (context) => getIt<NotifCounterWatcherBloc>()),
           BlocProvider(
             create: (context) =>

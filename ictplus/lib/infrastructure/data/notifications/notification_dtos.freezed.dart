@@ -23,21 +23,15 @@ class _$NotificationDtoTearOff {
   _NotificationDto call(
       {required String senderId,
       required bool isRead,
-      required String notificationType,
       required String timestamp,
-      required String postId,
       required String title,
-      required String details,
-      required bool pollAdded}) {
+      required String details}) {
     return _NotificationDto(
       senderId: senderId,
       isRead: isRead,
-      notificationType: notificationType,
       timestamp: timestamp,
-      postId: postId,
       title: title,
       details: details,
-      pollAdded: pollAdded,
     );
   }
 
@@ -53,12 +47,9 @@ const $NotificationDto = _$NotificationDtoTearOff();
 mixin _$NotificationDto {
   String get senderId => throw _privateConstructorUsedError;
   bool get isRead => throw _privateConstructorUsedError;
-  String get notificationType => throw _privateConstructorUsedError;
   String get timestamp => throw _privateConstructorUsedError;
-  String get postId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get details => throw _privateConstructorUsedError;
-  bool get pollAdded => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -74,12 +65,9 @@ abstract class $NotificationDtoCopyWith<$Res> {
   $Res call(
       {String senderId,
       bool isRead,
-      String notificationType,
       String timestamp,
-      String postId,
       String title,
-      String details,
-      bool pollAdded});
+      String details});
 }
 
 /// @nodoc
@@ -95,12 +83,9 @@ class _$NotificationDtoCopyWithImpl<$Res>
   $Res call({
     Object? senderId = freezed,
     Object? isRead = freezed,
-    Object? notificationType = freezed,
     Object? timestamp = freezed,
-    Object? postId = freezed,
     Object? title = freezed,
     Object? details = freezed,
-    Object? pollAdded = freezed,
   }) {
     return _then(_value.copyWith(
       senderId: senderId == freezed
@@ -111,17 +96,9 @@ class _$NotificationDtoCopyWithImpl<$Res>
           ? _value.isRead
           : isRead // ignore: cast_nullable_to_non_nullable
               as bool,
-      notificationType: notificationType == freezed
-          ? _value.notificationType
-          : notificationType // ignore: cast_nullable_to_non_nullable
-              as String,
       timestamp: timestamp == freezed
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
-              as String,
-      postId: postId == freezed
-          ? _value.postId
-          : postId // ignore: cast_nullable_to_non_nullable
               as String,
       title: title == freezed
           ? _value.title
@@ -131,10 +108,6 @@ class _$NotificationDtoCopyWithImpl<$Res>
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String,
-      pollAdded: pollAdded == freezed
-          ? _value.pollAdded
-          : pollAdded // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -149,12 +122,9 @@ abstract class _$NotificationDtoCopyWith<$Res>
   $Res call(
       {String senderId,
       bool isRead,
-      String notificationType,
       String timestamp,
-      String postId,
       String title,
-      String details,
-      bool pollAdded});
+      String details});
 }
 
 /// @nodoc
@@ -172,12 +142,9 @@ class __$NotificationDtoCopyWithImpl<$Res>
   $Res call({
     Object? senderId = freezed,
     Object? isRead = freezed,
-    Object? notificationType = freezed,
     Object? timestamp = freezed,
-    Object? postId = freezed,
     Object? title = freezed,
     Object? details = freezed,
-    Object? pollAdded = freezed,
   }) {
     return _then(_NotificationDto(
       senderId: senderId == freezed
@@ -188,17 +155,9 @@ class __$NotificationDtoCopyWithImpl<$Res>
           ? _value.isRead
           : isRead // ignore: cast_nullable_to_non_nullable
               as bool,
-      notificationType: notificationType == freezed
-          ? _value.notificationType
-          : notificationType // ignore: cast_nullable_to_non_nullable
-              as String,
       timestamp: timestamp == freezed
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
-              as String,
-      postId: postId == freezed
-          ? _value.postId
-          : postId // ignore: cast_nullable_to_non_nullable
               as String,
       title: title == freezed
           ? _value.title
@@ -208,10 +167,6 @@ class __$NotificationDtoCopyWithImpl<$Res>
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String,
-      pollAdded: pollAdded == freezed
-          ? _value.pollAdded
-          : pollAdded // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -222,12 +177,9 @@ class _$_NotificationDto extends _NotificationDto {
   const _$_NotificationDto(
       {required this.senderId,
       required this.isRead,
-      required this.notificationType,
       required this.timestamp,
-      required this.postId,
       required this.title,
-      required this.details,
-      required this.pollAdded})
+      required this.details})
       : super._();
 
   factory _$_NotificationDto.fromJson(Map<String, dynamic> json) =>
@@ -238,21 +190,15 @@ class _$_NotificationDto extends _NotificationDto {
   @override
   final bool isRead;
   @override
-  final String notificationType;
-  @override
   final String timestamp;
-  @override
-  final String postId;
   @override
   final String title;
   @override
   final String details;
-  @override
-  final bool pollAdded;
 
   @override
   String toString() {
-    return 'NotificationDto(senderId: $senderId, isRead: $isRead, notificationType: $notificationType, timestamp: $timestamp, postId: $postId, title: $title, details: $details, pollAdded: $pollAdded)';
+    return 'NotificationDto(senderId: $senderId, isRead: $isRead, timestamp: $timestamp, title: $title, details: $details)';
   }
 
   @override
@@ -264,22 +210,13 @@ class _$_NotificationDto extends _NotificationDto {
                     .equals(other.senderId, senderId)) &&
             (identical(other.isRead, isRead) ||
                 const DeepCollectionEquality().equals(other.isRead, isRead)) &&
-            (identical(other.notificationType, notificationType) ||
-                const DeepCollectionEquality()
-                    .equals(other.notificationType, notificationType)) &&
             (identical(other.timestamp, timestamp) ||
                 const DeepCollectionEquality()
                     .equals(other.timestamp, timestamp)) &&
-            (identical(other.postId, postId) ||
-                const DeepCollectionEquality().equals(other.postId, postId)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.details, details) ||
-                const DeepCollectionEquality()
-                    .equals(other.details, details)) &&
-            (identical(other.pollAdded, pollAdded) ||
-                const DeepCollectionEquality()
-                    .equals(other.pollAdded, pollAdded)));
+                const DeepCollectionEquality().equals(other.details, details)));
   }
 
   @override
@@ -287,12 +224,9 @@ class _$_NotificationDto extends _NotificationDto {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(senderId) ^
       const DeepCollectionEquality().hash(isRead) ^
-      const DeepCollectionEquality().hash(notificationType) ^
       const DeepCollectionEquality().hash(timestamp) ^
-      const DeepCollectionEquality().hash(postId) ^
       const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(details) ^
-      const DeepCollectionEquality().hash(pollAdded);
+      const DeepCollectionEquality().hash(details);
 
   @JsonKey(ignore: true)
   @override
@@ -309,12 +243,9 @@ abstract class _NotificationDto extends NotificationDto {
   const factory _NotificationDto(
       {required String senderId,
       required bool isRead,
-      required String notificationType,
       required String timestamp,
-      required String postId,
       required String title,
-      required String details,
-      required bool pollAdded}) = _$_NotificationDto;
+      required String details}) = _$_NotificationDto;
   const _NotificationDto._() : super._();
 
   factory _NotificationDto.fromJson(Map<String, dynamic> json) =
@@ -325,17 +256,11 @@ abstract class _NotificationDto extends NotificationDto {
   @override
   bool get isRead => throw _privateConstructorUsedError;
   @override
-  String get notificationType => throw _privateConstructorUsedError;
-  @override
   String get timestamp => throw _privateConstructorUsedError;
-  @override
-  String get postId => throw _privateConstructorUsedError;
   @override
   String get title => throw _privateConstructorUsedError;
   @override
   String get details => throw _privateConstructorUsedError;
-  @override
-  bool get pollAdded => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$NotificationDtoCopyWith<_NotificationDto> get copyWith =>

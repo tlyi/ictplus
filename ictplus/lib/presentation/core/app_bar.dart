@@ -15,120 +15,61 @@ AppBar appBar({
   bool canGoBack = false,
   bool canClose = false,
   bool canSignOut = false,
+  bool isHome = false,
   bool notifications = true,
   double fontSize = 20.0,
 }) {
   return AppBar(
     leading: canGoBack
         ? IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.grey),
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () {
               context.popRoute();
             },
           )
         : canClose
             ? IconButton(
-                icon: const Icon(Icons.close, color: Colors.grey),
+                icon: const Icon(Icons.close, color: Colors.white),
                 onPressed: () {
                   context.popRoute();
                 },
               )
-            : canSignOut
-                ? BlocConsumer<AuthBloc, AuthState>(listener: (context, state) {
-                    state.maybeMap(
-                      unauthenticated: (_) =>
-                          context.replaceRoute(const SignInRoute()),
-                      orElse: () {},
-                    );
-                  }, builder: (context, state) {
-                    return IconButton(
-                      icon: const Icon(Icons.logout, color: Colors.grey),
-                      onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext innerContext) => AlertDialog(
-                                  title: const Text('Sign Out?'),
-                                  content: const Text(
-                                      'Press OK to confirm sign out.'),
-                                  actions: <Widget>[
-                                    TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(innerContext),
-                                        child: const Text('Cancel')),
-                                    TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(innerContext);
-                                          context
-                                              .read<AuthBloc>()
-                                              .add(const AuthEvent.signedOut());
-                                        },
-                                        child: const Text('OK'))
-                                  ],
-                                ));
-                      },
-                    );
-                  })
-                : Container(),
+            : null,
     title: showLogo == true
         ? Image(image: AssetImage('images/ict_white_logo.png'), height: 50)
-        : Text(header,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: fontSize,
-            )),
+        : isHome
+            ? Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Image(
+                    image: AssetImage('images/ict_white_logo.png'), height: 50),
+              )
+            : Text(header,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: fontSize,
+                )),
     backgroundColor: Colors.black,
-    centerTitle: true,
+    centerTitle: isHome ? false : true,
     actions: [
       if (notifications)
-        Stack(children: [
-          IconButton(
-            icon: const Icon(Icons.notifications_none, color: Colors.grey),
-            onPressed: () {
-              context.pushRoute(const NotificationRoute());
-            },
-            padding: const EdgeInsets.only(right: 20),
-          ),
-          BlocBuilder<NotifCounterWatcherBloc, NotifCounterWatcherState>(
-            builder: (context, state) {
-              return Positioned(
-                top: 5,
-                right: 12,
-                child: (state is LoadSuccess)
-                    ? state.unread == 0
-                        ? Container()
-                        : ClipOval(
-                            child: Container(
-                                alignment: Alignment.center,
-                                width: 20,
-                                height: 20,
-                                color: constants.THEME_NOTIF_BG,
-                                child: Text(
-                                    state.unread > 100
-                                        ? '+'
-                                        : state.unread.toString(),
-                                    style: const TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300))))
-                    : ClipOval(
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: 20,
-                          height: 20,
-                          color: constants.THEME_NOTIF_BG,
-                          child: const Padding(
-                            padding: EdgeInsets.all(5.0),
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                              strokeWidth: 1,
-                            ),
-                          ),
-                        ),
-                      ),
-              );
-            },
-          ),
-        ])
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Stack(children: [
+            Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white, width: 1),
+                  shape: BoxShape.circle),
+              child: IconButton(
+                icon: const Icon(Icons.notifications_none,
+                    color: Colors.white, size: 20),
+                onPressed: () {
+                  context.pushRoute(const NotificationRoute());
+                },
+              ),
+            ),
+          ]),
+        )
       else
         Container(),
     ],

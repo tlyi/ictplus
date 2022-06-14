@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ictplus/application/auth/auth_bloc.dart';
 import 'package:ictplus/application/profile/profile_actor/profile_actor_bloc.dart';
 import 'package:ictplus/domain/data/data_failure.dart';
 import 'package:ictplus/domain/data/profile/profile.dart';
@@ -16,8 +17,13 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 class ProfileElements extends StatelessWidget {
   final Profile userProfile;
   final bool isOwnProfile;
+  final bool canUpdate;
+
   const ProfileElements(
-      {Key? key, required this.userProfile, required this.isOwnProfile})
+      {Key? key,
+      required this.userProfile,
+      required this.isOwnProfile,
+      this.canUpdate = false})
       : super(key: key);
 
   @override
@@ -25,7 +31,6 @@ class ProfileElements extends StatelessWidget {
     return Stack(
       alignment: Alignment.topLeft,
       children: [
-        //   WaveHeader(),
         Container(
           alignment: Alignment.topLeft,
           padding: const EdgeInsets.only(
@@ -34,12 +39,139 @@ class ProfileElements extends StatelessWidget {
             bottom: 50,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top: 30, bottom: 30),
+                padding: const EdgeInsets.only(top: 30, bottom: 20),
                 child: ProfileHeader(
-                    userProfile: userProfile, isOwnProfile: isOwnProfile),
+                  userProfile: userProfile,
+                  isOwnProfile: isOwnProfile,
+                  canUpdate: canUpdate,
+                ),
               ),
+              if (!canUpdate)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5.0),
+                  child: SizedBox(
+                    height: 40,
+                    width: MediaQuery.of(context).size.width * 0.88,
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                                constants.THEME_ORANGE),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ))),
+                        onPressed: () {},
+                        child: Row(
+                          children: [
+                            const Icon(Icons.create_outlined,
+                                color: Colors.white),
+                            const SizedBox(width: 10),
+                            const Text("Update Information",
+                                style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 16,
+                                    color: Colors.white)),
+                          ],
+                        )),
+                  ),
+                ),
+              if (!canUpdate)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5.0),
+                  child: SizedBox(
+                    height: 40,
+                    width: MediaQuery.of(context).size.width * 0.88,
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.black),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ))),
+                        onPressed: () {},
+                        child: Row(
+                          children: [
+                            const Icon(Icons.settings_outlined,
+                                color: Colors.white),
+                            const SizedBox(width: 10),
+                            const Text("Settings",
+                                style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 16,
+                                    color: Colors.white)),
+                          ],
+                        )),
+                  ),
+                ),
+              SizedBox(height: 150),
+              if (!canUpdate)
+                BlocConsumer<AuthBloc, AuthState>(listener: (context, state) {
+                  state.maybeMap(
+                    unauthenticated: (_) =>
+                        context.replaceRoute(const SignInRoute()),
+                    orElse: () {},
+                  );
+                }, builder: (context, state) {
+                  return Align(
+                    alignment: Alignment.center,
+                    child: SizedBox(
+                      height: 40,
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      child: ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.black),
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      side: BorderSide(
+                                          width: 0.5,
+                                          color: constants.THEME_ORANGE)))),
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext innerContext) =>
+                                    AlertDialog(
+                                      title: const Text('Sign Out?'),
+                                      content: const Text(
+                                          'Press OK to confirm sign out.'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                            onPressed: () =>
+                                                Navigator.pop(innerContext),
+                                            child: const Text('Cancel')),
+                                        TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(innerContext);
+                                              context.read<AuthBloc>().add(
+                                                  const AuthEvent.signedOut());
+                                            },
+                                            child: const Text('OK'))
+                                      ],
+                                    ));
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text("Log Out",
+                                  style: TextStyle(
+                                      fontFamily: 'Montserrat',
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 16,
+                                      color: Colors.white)),
+                            ],
+                          )),
+                    ),
+                  );
+                }),
             ],
           ),
         ),
@@ -51,11 +183,13 @@ class ProfileElements extends StatelessWidget {
 class ProfileHeader extends StatelessWidget {
   final Profile userProfile;
   final bool isOwnProfile;
+  final bool canUpdate;
 
   const ProfileHeader({
     Key? key,
     required this.userProfile,
     required this.isOwnProfile,
+    this.canUpdate = false,
   }) : super(key: key);
 
   @override
@@ -87,105 +221,46 @@ class ProfileHeader extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 30),
-        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(
-            userProfile.rank,
-            style: const TextStyle(
-                fontFamily: 'Montserrat', fontSize: 15, color: Colors.white),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            userProfile.fullName,
-            style: const TextStyle(
-                fontFamily: 'Montserrat',
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.white),
-          ),
-        ]),
+        Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                userProfile.rank,
+                style: const TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontSize: 15,
+                  fontWeight: FontWeight.w300,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(height: 5),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    userProfile.fullName,
+                    style: const TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white),
+                  ),
+                  if (canUpdate)
+                    Padding(
+                      padding: const EdgeInsets.only(left: 60.0),
+                      child: GestureDetector(
+                          child:
+                              Icon(Icons.edit, color: Colors.white, size: 20),
+                          onTap: () {
+                            context.pushRoute(ProfileRoute(canGoBack: true));
+                          }),
+                    ),
+                ],
+              ),
+            ]),
         const SizedBox(height: 10),
       ],
     );
-  }
-}
-
-class UpdateProfileButton extends StatelessWidget {
-  final Profile userProfile;
-
-  const UpdateProfileButton({Key? key, required this.userProfile})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-        padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.only(
-          left: 15,
-          right: 15,
-        )),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-            side: const BorderSide(color: constants.THEME_BLUE),
-          ),
-        ),
-      ),
-      onPressed: () {
-        // context.pushRoute(const UpdateProfileRoute());
-      },
-      child: const Text('Update Profile',
-          style: TextStyle(color: constants.THEME_BLUE)),
-    );
-  }
-}
-
-class WaveHeader extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ClipPath(
-      clipper: WaveClipper(),
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 0.3,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(colors: [
-            Color(0xFF3E90A4),
-            constants.THEME_BLUE,
-            Color(0xFFCEF2FA),
-          ], begin: Alignment.topLeft, end: Alignment.topRight),
-        ),
-      ),
-    );
-  }
-}
-
-class WaveClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    final path = Path();
-    path.lineTo(0.0, size.height * 0.60);
-
-    final firstControlPoint = Offset(size.width / 4.3, size.height * 0.55);
-    final firstEndPoint = Offset(size.width / 2.4, size.height * 0.40);
-    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
-        firstEndPoint.dx, firstEndPoint.dy);
-
-    final secondControlPoint =
-        Offset(size.width - (size.width / 3.5), size.height * 0.17);
-    final secondEndPoint = Offset(size.width, size.height * 0.33);
-    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
-        secondEndPoint.dx, secondEndPoint.dy);
-
-    path.lineTo(size.width, size.height * 0.6);
-    path.lineTo(size.width, 0.0);
-    path.close();
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    return true;
   }
 }

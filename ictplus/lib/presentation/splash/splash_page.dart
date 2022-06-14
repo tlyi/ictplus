@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ictplus/application/auth/auth_bloc.dart';
-import 'package:ictplus/application/notifications/chat_counter_watcher/chat_counter_watcher_bloc.dart';
+
 import 'package:ictplus/application/notifications/notif_counter_watcher/notif_counter_watcher_bloc.dart';
 import 'package:ictplus/presentation/routes/router.gr.dart';
 import 'package:auto_route/auto_route.dart';
@@ -37,10 +37,6 @@ class SplashPage extends StatelessWidget {
             context.read<NotifCounterWatcherBloc>().add(
                 NotifCounterWatcherEvent.retrieveUnreadNotifsStarted(
                     userId: state.userId));
-            context.read<ChatCounterWatcherBloc>().add(
-                ChatCounterWatcherEvent.retrieveUnreadChatsStarted(
-                    userId: state.userId));
-
             context.replaceRoute(const HomeRoute());
           });
     }, builder: (context, state) {
@@ -52,7 +48,7 @@ class SplashPage extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('images/ict_white_logo.png', height: 100),
+            Image.asset('images/ict_white_logo.png', height: 80),
             const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

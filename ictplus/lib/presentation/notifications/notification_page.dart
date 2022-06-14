@@ -13,12 +13,13 @@ class NotificationPage extends StatelessWidget {
         create: (context) => getIt<NotificationWatcherBloc>()
           ..add(const NotificationWatcherEvent.retrieveNotificationsStarted()),
         child: Scaffold(
+            backgroundColor: Colors.black,
             appBar: appBar(
                 context: context,
                 header: 'Notifications',
                 canClose: true,
+                showLogo: true,
                 notifications: false),
-            bottomNavigationBar: const NavigationBar(),
             body: const Notifications()));
   }
 }

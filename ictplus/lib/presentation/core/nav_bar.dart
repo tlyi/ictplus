@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ictplus/application/notifications/chat_counter_watcher/chat_counter_watcher_bloc.dart';
 import 'package:ictplus/presentation/routes/router.gr.dart';
 import 'package:ictplus/domain/core/constants.dart' as constants;
 

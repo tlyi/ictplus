@@ -43,12 +43,23 @@ class SignInPage extends StatelessWidget {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        SizedBox(height: 80),
+                        SizedBox(height: 100),
                         Image.asset(
                           'images/ict_white_logo.png',
                           width: MediaQuery.of(context).size.width * 0.3,
-                          height: MediaQuery.of(context).size.width * 0.3,
                         ),
+                        Text('welcome back',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 28,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w300,
+                                shadows: [
+                                  Shadow(
+                                      color: Colors.black.withOpacity(1),
+                                      offset: const Offset(15, 15),
+                                      blurRadius: 15),
+                                ])),
                         const Padding(padding: const EdgeInsets.only(top: 140)),
                         Container(
                           alignment: Alignment.bottomCenter,

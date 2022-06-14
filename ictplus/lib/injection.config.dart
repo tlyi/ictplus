@@ -14,11 +14,9 @@ import 'application/auth/auth_bloc.dart' as _i22;
 import 'application/auth/sign_in_form/sign_in_form_bloc.dart' as _i21;
 import 'application/myevents/forum_actor/forum_actor_bloc.dart' as _i16;
 import 'application/myevents/forum_post_watcher/forum_post_watcher_bloc.dart'
-    as _i24;
+    as _i23;
 import 'application/myevents/forum_post_watcher/poll_watcher/poll_watcher_bloc.dart'
     as _i19;
-import 'application/notifications/chat_counter_watcher/chat_counter_watcher_bloc.dart'
-    as _i23;
 import 'application/notifications/notif_counter_watcher/notif_counter_watcher_bloc.dart'
     as _i17;
 import 'application/notifications/notification_watcher/notification_watcher_bloc.dart'
@@ -30,7 +28,7 @@ import 'domain/data/notifications/i_notification_repository.dart' as _i12;
 import 'domain/data/profile/i_profile_repository.dart' as _i14;
 import 'domain/mods/i_mod_repository.dart' as _i10;
 import 'infrastructure/auth/firebase_auth_facade.dart' as _i7;
-import 'infrastructure/core/firebase_injectable_module.dart' as _i25;
+import 'infrastructure/core/firebase_injectable_module.dart' as _i24;
 import 'infrastructure/data/myevents/forum_repository.dart' as _i9;
 import 'infrastructure/data/notifications/notification_repository.dart' as _i13;
 import 'infrastructure/data/profile/mods/mod_repository.dart' as _i11;
@@ -73,11 +71,9 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i21.SignInFormBloc(get<_i6.IAuthFacade>()));
   gh.factory<_i22.AuthBloc>(() => _i22.AuthBloc(get<_i6.IAuthFacade>(),
       get<_i14.IProfileRepository>(), get<_i10.IModRepository>()));
-  gh.factory<_i23.ChatCounterWatcherBloc>(
-      () => _i23.ChatCounterWatcherBloc(get<_i12.INotificationRepository>()));
-  gh.factory<_i24.ForumPostWatcherBloc>(() => _i24.ForumPostWatcherBloc(
+  gh.factory<_i23.ForumPostWatcherBloc>(() => _i23.ForumPostWatcherBloc(
       get<_i8.IForumRepository>(), get<_i14.IProfileRepository>()));
   return get;
 }
 
-class _$FirebaseInjectableModule extends _i25.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i24.FirebaseInjectableModule {}

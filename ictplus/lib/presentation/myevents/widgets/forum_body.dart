@@ -36,8 +36,9 @@ class ForumBody extends StatelessWidget {
       return state.map(
         initial: (_) => Container(),
         loadInProgress: (_) => const Scaffold(
+          backgroundColor: Colors.black,
           body: Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(color: constants.THEME_ORANGE),
           ),
         ),
         loadSuccess: (state) {
@@ -105,7 +106,7 @@ class _BuildPost extends StatelessWidget {
                     Text(forum.status,
                         style: const TextStyle(
                             fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w900,
+                            fontWeight: FontWeight.normal,
                             fontSize: 15,
                             color: constants.THEME_ORANGE))
                   ],
@@ -113,7 +114,7 @@ class _BuildPost extends StatelessWidget {
                 Text(forum.start_date + ' - ' + forum.end_date,
                     style: const TextStyle(
                         fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w900,
+                        fontWeight: FontWeight.w600,
                         fontSize: 20,
                         color: Colors.white)),
                 const SizedBox(height: 20),
@@ -137,7 +138,7 @@ class _BuildPost extends StatelessWidget {
                     forum.report_time,
                     style: const TextStyle(
                         fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w900,
+                        fontWeight: FontWeight.w600,
                         fontSize: 16,
                         color: Colors.white),
                   ),
@@ -160,7 +161,7 @@ class _BuildPost extends StatelessWidget {
                     forum.location,
                     style: const TextStyle(
                         fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w900,
+                        fontWeight: FontWeight.w600,
                         fontSize: 16,
                         color: Colors.white),
                   ),
@@ -204,7 +205,7 @@ class _BuildPost extends StatelessWidget {
                         child: const Text("Submit ForcePrep Image",
                             style: TextStyle(
                                 fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w900,
+                                fontWeight: FontWeight.w400,
                                 fontSize: 16,
                                 color: Colors.white))),
                   ),
@@ -226,7 +227,7 @@ class _BuildPost extends StatelessWidget {
                         child: const Text("Report Missing Items",
                             style: TextStyle(
                                 fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w900,
+                                fontWeight: FontWeight.w400,
                                 fontSize: 16,
                                 color: Colors.white))),
                   )
@@ -384,7 +385,7 @@ class _BuildList extends StatelessWidget {
                         child: Text(item,
                             style: TextStyle(
                                 fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w400,
                                 fontSize: 13,
                                 color: Colors.white)));
                   })

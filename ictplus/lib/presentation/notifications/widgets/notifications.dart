@@ -5,6 +5,7 @@ import 'package:ictplus/application/notifications/notification_watcher/notificat
 import 'package:ictplus/presentation/core/get_time.dart';
 import 'package:ictplus/presentation/routes/router.gr.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:ictplus/domain/core/constants.dart' as constants;
 
 class Notifications extends StatelessWidget {
   const Notifications({Key? key}) : super(key: key);
@@ -25,7 +26,9 @@ class Notifications extends StatelessWidget {
       return state.map(
           initial: (_) => Container(),
           loadInProgress: (_) => const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                  color: constants.THEME_ORANGE,
+                ),
               ),
           loadSuccess: (state) {
             final int length = state.notifications.length;
@@ -35,81 +38,91 @@ class Notifications extends StatelessWidget {
                     const NotificationWatcherEvent
                         .retrieveNotificationsStarted());
               },
-              child: ListView.builder(
-                itemCount: state.hasMore ? length + 1 : length,
-                itemBuilder: (context, index) {
-                  if (index == length) {
-                    if (!state.isRetrieving) {
-                      context.read<NotificationWatcherBloc>().add(
-                          NotificationWatcherEvent.retrieveMoreNotifications(
-                              state.notifications, state.profiles));
-                    }
-                    return Container(
-                      margin: const EdgeInsets.only(top: 15, bottom: 15),
-                      height: 30,
-                      width: 30,
-                      child: const Center(child: CircularProgressIndicator()),
-                    );
-                  } else {
-                    final notification = state.notifications[index];
-                    final notificationType = notification.notificationType;
-                    final profile = state.profiles[index];
-                    String notificationTitle = '';
-                    // if (notificationType == 'forumLike') {
-                    //   notificationTitle =
-                    //       'Your post "${notification.title}" got a new like';
-                    // } else if (notificationType == 'commentLike') {
-                    //   notificationTitle =
-                    //       'Your comment on "${notification.title}" got a new like';
-                    // } else if (notificationType == 'newComment') {
-                    //   notificationTitle =
-                    //       '@${profile.username.getOrCrash()} left a comment on "${notification.title}"';
-                    // } else if (notificationType == 'newFollower') {
-                    //   notificationTitle =
-                    //       '@${profile.username.getOrCrash()} just followed you';
-                    // }
-                    return Card(
-                      child: ListTile(
-                        leading: (notificationType == 'newComment' ||
-                                notificationType == 'newFollower')
-                            ? CircleAvatar(
-                                radius: 20,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20.0),
+                    child: Text('Notifications',
+                        style: const TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w600,
+                            fontSize: 24,
+                            color: Colors.white)),
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: state.hasMore ? length + 1 : length,
+                      itemBuilder: (context, index) {
+                        if (index == length) {
+                          if (!state.isRetrieving) {
+                            context.read<NotificationWatcherBloc>().add(
+                                NotificationWatcherEvent
+                                    .retrieveMoreNotifications(
+                                        state.notifications, state.profiles));
+                          }
+                          return Container(
+                            margin: const EdgeInsets.only(top: 30, bottom: 15),
+                            height: 30,
+                            width: 30,
+                            child: const Center(
+                                child: CircularProgressIndicator()),
+                          );
+                        } else {
+                          final notification = state.notifications[index];
+                          final profile = state.profiles[index];
+                          return Card(
+                            margin: const EdgeInsets.only(
+                                top: 5, bottom: 5, left: 15, right: 15),
+                            color: Colors.black,
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                radius: 30,
                                 backgroundImage: NetworkImage(profile.photoUrl),
                                 backgroundColor: Colors.white,
-                              )
-                            : (notificationType == 'forumLike')
-                                ? const Padding(
-                                    padding:
-                                        EdgeInsets.only(left: 8.0, top: 8.0),
-                                    child: Icon(Icons.view_list_rounded),
+                              ),
+                              title: Column(
+                                children: [
+                                  Text(notification.details,
+                                      style: const TextStyle(
+                                          height: 1.7,
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: 13,
+                                          color: Colors.white)),
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                            '@' +
+                                                profile.rank +
+                                                ' ' +
+                                                profile.fullName,
+                                            style: const TextStyle(
+                                                height: 1.7,
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.w300,
+                                                fontSize: 13,
+                                                color: constants.THEME_ORANGE)),
+                                      ),
+                                      Text(getTime(notification.timestamp),
+                                          style: const TextStyle(
+                                              height: 1.7,
+                                              fontFamily: 'Montserrat',
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 13,
+                                              color: Colors.grey)),
+                                    ],
                                   )
-                                : (notificationType == 'commentLike')
-                                    ? const Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 8.0, top: 8.0),
-                                        child: Icon(Icons.comment_bank),
-                                      )
-                                    : Container(),
-                        title: Text(notificationTitle),
-                        subtitle: (notificationType == 'newComment' ||
-                                notificationType == 'commentLike')
-                            ? Text(
-                                notification.details,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              )
-                            : Container(),
-                        trailing: Text(getTime(notification.timestamp)),
-                        onTap: () {
-                          if (notificationType == 'newFollower') {
-                            context.pushRoute(
-                                OtherProfileRoute(userProfile: profile));
-                          } else {}
-                        },
-                      ),
-                    );
-                  }
-                },
+                                ],
+                              ),
+                              // trailing: Text(getTime(notification.timestamp)),
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                  ),
+                ],
               ),
             );
           },

@@ -29,7 +29,7 @@ class ProfilePage extends StatelessWidget {
                 canSignOut: true,
                 showLogo: true),
             backgroundColor: Colors.transparent,
-            bottomNavigationBar: const NavigationBar(),
+            // bottomNavigationBar: const NavigationBar(),
             body: SingleChildScrollView(child: OwnProfile()),
           ),
         ));
