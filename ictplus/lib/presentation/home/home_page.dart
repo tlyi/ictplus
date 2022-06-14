@@ -22,14 +22,19 @@ class HomePage extends StatelessWidget {
     },
     {
       'isUpcoming': false,
-      'dates': '23 June 2022 to 27 June 2022',
+      'dates': '23 June 2021 to 27 June 2021',
       'label': 'ICT 1',
     },
     {
       'isUpcoming': false,
-      'dates': '17 Feb 2022 to 27 June 2022',
+      'dates': '18 Feb 2021 to 27 Mar 2021',
       'label': 'ARF',
-    }
+    },
+    {
+      'isUpcoming': false,
+      'dates': '18 Feb 2020 to 27 Mar 2020',
+      'label': 'ARF',
+    },
   ];
 
   @override
@@ -49,77 +54,96 @@ class HomePage extends StatelessWidget {
           showLogo: true,
         ),
         bottomNavigationBar: const NavigationBar(),
-        body: Container(
-          alignment: Alignment.center,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              OwnProfile(),
-              Container(
-                  margin: EdgeInsets.fromLTRB(50, 0, 50, 50),
-                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                  height: 30,
-                  width: MediaQuery.of(context).size.width,
-                  alignment: Alignment.centerLeft,
-                  decoration: const BoxDecoration(
-                      color: constants.THEME_TRANSLUCENT_ORANGE,
-                      borderRadius: BorderRadius.all(Radius.circular(13.0))),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                            child: const Text('Search an item',
-                                style: TextStyle(
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 13,
-                                    color: Color(0x66FFFFFF)))),
-                        const Icon(
-                          Icons.search,
-                          color: Color(0x66FFFFFF),
-                          size: 17.0,
-                        )
-                      ])),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-                    child: Text(
-                      'myEvents',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontFamily: 'Montserrat',
+        body: SingleChildScrollView(
+          physics: ScrollPhysics(),
+          child: Container(
+            alignment: Alignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                OwnProfile(),
+                Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: 50,
+                      vertical: 20,
+                    ),
+                    padding: EdgeInsets.only(left: 10.0, right: 10.0),
+                    height: 30,
+                    width: MediaQuery.of(context).size.width,
+                    alignment: Alignment.centerLeft,
+                    decoration: const BoxDecoration(
+                        color: constants.THEME_TRANSLUCENT_ORANGE,
+                        borderRadius: BorderRadius.all(Radius.circular(13.0))),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            child: const Text(
+                              'Search an item',
+                              style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w400,
+                                fontSize: 13,
+                                color: Color(0x66FFFFFF),
+                              ),
+                            ),
+                          ),
+                          const Icon(
+                            Icons.search,
+                            color: Color(0x66FFFFFF),
+                            size: 17.0,
+                          )
+                        ])),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+                      child: Text(
+                        'myEvents',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontFamily: 'Montserrat',
+                        ),
                       ),
                     ),
-                  ),
-                  Container(),
-                  Container(),
-                ],
-              ),
-              EventCard(
-                isUpcoming: true,
-                dates: _data[0]['dates'] as String,
-                label: _data[0]['label'] as String,
-                callback: () {
-                  context.pushRoute(ForumRoute(
-                      forumId: '00379c10-f444-11eb-ab17-4f148afc8cae',
-                      pollAdded: false));
-                },
-              ),
-              EventCard(
-                  isUpcoming: false,
-                  dates: _data[1]['dates'] as String,
-                  label: _data[1]['label'] as String,
-                  callback: () {}),
-              EventCard(
-                  isUpcoming: false,
-                  dates: _data[2]['dates'] as String,
-                  label: _data[2]['label'] as String,
-                  callback: () {}),
-            ],
+                    Container(),
+                    Container(),
+                  ],
+                ),
+                Column(
+                  children: [
+                    EventCard(
+                      isUpcoming: true,
+                      dates: _data[0]['dates'] as String,
+                      label: _data[0]['label'] as String,
+                      callback: () {
+                        context.pushRoute(ForumRoute(
+                            forumId: '00379c10-f444-11eb-ab17-4f148afc8cae',
+                            pollAdded: false));
+                      },
+                    ),
+                    EventCard(
+                        isUpcoming: false,
+                        dates: _data[1]['dates'] as String,
+                        label: _data[1]['label'] as String,
+                        callback: () {}),
+                    EventCard(
+                        isUpcoming: false,
+                        dates: _data[2]['dates'] as String,
+                        label: _data[2]['label'] as String,
+                        callback: () {}),
+                    EventCard(
+                        isUpcoming: false,
+                        dates: _data[3]['dates'] as String,
+                        label: _data[3]['label'] as String,
+                        callback: () {}),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
