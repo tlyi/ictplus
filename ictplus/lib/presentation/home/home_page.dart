@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ictplus/application/profile/profile_actor/profile_actor_bloc.dart';
+import 'package:ictplus/injection.dart';
 
 import 'package:ictplus/presentation/core/app_bar.dart';
 import 'package:ictplus/presentation/core/nav_bar.dart';
 import 'package:ictplus/domain/core/constants.dart' as constants;
 import 'package:auto_route/auto_route.dart';
 import 'package:ictplus/presentation/home/event_card.dart';
+import 'package:ictplus/presentation/profile/widgets/own_profile.dart';
 import 'package:ictplus/presentation/routes/router.gr.dart';
-
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -31,74 +34,93 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: appBar(
-        context: context,
-        header: 'ICT+',
-        showLogo: true,
-      ),
-      bottomNavigationBar: const NavigationBar(),
-      body: Container(
-        alignment: Alignment.center,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                    margin: EdgeInsets.symmetric(vertical: 15.0),
-                    padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                    height: 30,
-                    width: MediaQuery.of(context).size.width,
-                    alignment: Alignment.centerLeft,
-                    decoration: const BoxDecoration(
-                        color: constants.THEME_TRANSLUCENT_ORANGE,
-                        borderRadius: BorderRadius.all(Radius.circular(13.0))),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                              child: const Text('Search an item',
-                                  style: TextStyle(
-                                      fontFamily: 'Montserrat',
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 13,
-                                      color: Color(0x66FFFFFF)))),
-                          const Icon(
-                            Icons.search,
-                            color: Color(0x66FFFFFF),
-                            size: 17.0,
-                          )
-                        ])),
-                Container(
-                  padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-                  child: Text(
-                    'myEvents',
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontFamily: 'Montserrat',
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<ProfileActorBloc>()
+            ..add(const ProfileActorEvent.loadingOwnProfile()),
+        ),
+      ],
+      child: Scaffold(
+        backgroundColor: Colors.black,
+        appBar: appBar(
+          context: context,
+          header: 'ICT+',
+          showLogo: true,
+        ),
+        bottomNavigationBar: const NavigationBar(),
+        body: Container(
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              OwnProfile(),
+              Container(
+                  margin: EdgeInsets.fromLTRB(50, 0, 50, 50),
+                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
+                  height: 30,
+                  width: MediaQuery.of(context).size.width,
+                  alignment: Alignment.centerLeft,
+                  decoration: const BoxDecoration(
+                      color: constants.THEME_TRANSLUCENT_ORANGE,
+                      borderRadius: BorderRadius.all(Radius.circular(13.0))),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                            child: const Text('Search an item',
+                                style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                    color: Color(0x66FFFFFF)))),
+                        const Icon(
+                          Icons.search,
+                          color: Color(0x66FFFFFF),
+                          size: 17.0,
+                        )
+                      ])),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+                    child: Text(
+                      'myEvents',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontFamily: 'Montserrat',
+                      ),
                     ),
                   ),
-                ),
-                Container(),
-                Container(),
-              ],
-            ),
-            EventCard(
-              isUpcoming: true,
-              callback: () {
-                context.pushRoute(ForumRoute(
-                    forumId: '00379c10-f444-11eb-ab17-4f148afc8cae',
-                    pollAdded: false));
-              },
-            ),
-            EventCard(isUpcoming: false, callback: () {}),
-            EventCard(isUpcoming: false, callback: () {}),
-          ],
+                  Container(),
+                  Container(),
+                ],
+              ),
+              EventCard(
+                isUpcoming: true,
+                dates: _data[0]['dates'] as String,
+                label: _data[0]['label'] as String,
+                callback: () {
+                  context.pushRoute(ForumRoute(
+                      forumId: '00379c10-f444-11eb-ab17-4f148afc8cae',
+                      pollAdded: false));
+                },
+              ),
+              EventCard(
+                  isUpcoming: false,
+                  dates: _data[1]['dates'] as String,
+                  label: _data[1]['label'] as String,
+                  callback: () {}),
+              EventCard(
+                  isUpcoming: false,
+                  dates: _data[2]['dates'] as String,
+                  label: _data[2]['label'] as String,
+                  callback: () {}),
+            ],
+          ),
         ),
       ),
     );
